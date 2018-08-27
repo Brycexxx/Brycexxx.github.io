@@ -34,5 +34,17 @@
 			</div>
 		</nav>
 		<!--侧栏音乐-->
+		<nav class="header-nav">
+			<div class="social">
+				<% for (var i in theme.subnav){ %>
+					<a class="<%= i %>" target="_blank" href="<%- url_for(theme.subnav[i]) %>" title="<%= i %>"><i class="icon-<%= i %>"></i></a>
+				<%}%>
+			</div>
+		
+			<!--音乐播放插件-->
+			<div style="margin-top:30px;">
+				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=419594287&auto=1&height=66"></iframe>
+			</div>
+		</nav>
 	</header>		
 </div>
