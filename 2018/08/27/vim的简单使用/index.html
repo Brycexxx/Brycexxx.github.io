@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Bryce&#39;s Blog">
 <meta property="og:description" content="命令vim启动vim编辑器vim + 目标文件路径 使用vim（若文件存在，则vim打开该文件；若不存在，则vim新建该文件）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T07:49:20.384Z">
+<meta property="og:updated_time" content="2018-08-27T07:52:48.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim的简单使用">
 <meta name="twitter:description" content="命令vim启动vim编辑器vim + 目标文件路径 使用vim（若文件存在，则vim打开该文件；若不存在，则vim新建该文件）">
@@ -186,13 +186,29 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>命令vim启动vim编辑器<br>vim + 目标文件路径 使用vim<br>（若文件存在，则vim打开该文件；若不存在，则vim新建该文件）<br><a id="more"></a></p>
-<p>###三种模式###</p>
-<ul>
+<h2 id="三种模式"><a href="#三种模式" class="headerlink" title="三种模式"></a>三种模式</h2><ul>
 <li>命令模式：启动后默认进入命令模式，任何模式都可以通过esc回到命令模式</li>
 <li>插入模式：i 键进入</li>
 <li>ex模式：在命令模式下按 “:” 进入ex模式，光标会移动到底部，在这里可以保存修改或退出vim</li>
 </ul>
-<p>命令模式<br>i          在光标前插入文本；<br>o         在当前行的下面插入新行；<br>dd       删除整行<br>yy      将当前行的内容放入缓冲区（复制当前行）<br>n+yy     复制n行<br>p        将缓冲区的文本放入光标后（粘贴）<br>u       撤销上一个操作<br>r        替换当前字符<br>/        查找关键字（按n在查找到的结果之间切换）<br>ex模式<br>:w            保存当前修改<br>:q                退出<br>:q!            强制退出，不保存修改<br>:x                保存并退出，相当于 :wq<br>:set number        显示行号<br>:!                系统命令，执行一个系统命令并显示结果<br>:sh            切换到命令行，使用crtl+d切换回vim</p>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><ul>
+<li>i          在光标前插入文本；</li>
+<li>o         在当前行的下面插入新行；</li>
+<li>dd       删除整行</li>
+<li>yy      将当前行的内容放入缓冲区（复制当前行）</li>
+<li>n+yy     复制n行</li>
+<li>p        将缓冲区的文本放入光标后（粘贴）</li>
+<li>u       撤销上一个操作</li>
+<li>r        替换当前字符</li>
+<li>/        查找关键字（按n在查找到的结果之间切换）<h3 id="ex模式"><a href="#ex模式" class="headerlink" title="ex模式"></a>ex模式</h3></li>
+<li>:w            保存当前修改</li>
+<li>:q                退出</li>
+<li>:q!            强制退出，不保存修改</li>
+<li>:x                保存并退出，相当于 :wq</li>
+<li>:set number        显示行号</li>
+<li>:!                系统命令，执行一个系统命令并显示结果</li>
+<li>:sh            切换到命令行，使用crtl+d切换回vim</li>
+</ul>
 
       
 
@@ -326,7 +342,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#三种模式"><span class="toc-number">1.</span> <span class="toc-text">三种模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">1.1.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ex模式"><span class="toc-number">1.2.</span> <span class="toc-text">ex模式</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
