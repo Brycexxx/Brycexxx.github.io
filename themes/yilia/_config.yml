@@ -21,7 +21,7 @@ subnav:
   #google: "#"
   #twitter: "#"
   #linkedin: "#"
-  rss: "#"
+  #rss: "#"
 
 rss: /atom.xml
 
