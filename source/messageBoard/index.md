@@ -1,6 +1,5 @@
 ---
 title: Bryce 的留言板
-date: 2018-08-30 17:07:19
 ---
 <img src='/assets/background.jpg' alt='background' height=300px width='100%' />
 <div id="vcomment" class="comment"></div>
