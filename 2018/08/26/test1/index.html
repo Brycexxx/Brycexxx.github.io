@@ -34,14 +34,6 @@
     #container.show {
       background: linear-gradient(200deg,#a0cfe4,#e8c37e);
     }
-    .post-copyright{
-    margin: 0em 0em 0em 0em;
-    padding: 0.5em 1em;
-    border-left:3px solid #ff1700;
-    background-color: #f9f9f9;
-    list-style: none;
-    font-size: 14px;
-  }
   </style>
   
 
@@ -63,7 +55,6 @@
     })();
     </script>
 
-  
 </head>
 
 <body>
@@ -263,7 +254,8 @@
 <p>通过分析上述结果，可以知道装饰器函数调用的顺序为自下向上，然儿产生装饰作用的顺序是由上到下，首先 $n=5$ 从<code>countcalls</code>开始计数，然后达到<code>memo</code>。在这个斐波那契二叉树中红色的部分即添加缓存装饰器函数之后发生调用的9次，可以看到在这个二叉树中，直到 $n=1$，cache才不为空，当 $n=0$ 时，已经有缓存了。之后开始回溯，0之后的1，2，3直接可以从缓存中获取结果。<br><img src="http://wx3.sinaimg.cn/mw690/e7900ef2ly1fprqe1o82aj20l40dkwex.jpg" alt="此处输入图片的描述"></p>
 
       
-
+      
+    
       
         <div class="page-reward">
           <a href="javascript:;" class="page-reward-btn tooltip-top">
@@ -501,6 +493,9 @@
     } 
 setInterval("createtime()",250);
 </script>
+<!--页面点击小红心-->
+<script type="text/javascript" src="/love.js"></script>
+
 <span id="busuanzi_container_site_pv">    访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
 
 <span id="busuanzi_container_site_uv">  访客数&nbsp;<span id="busuanzi_value_site_uv"></span></span>

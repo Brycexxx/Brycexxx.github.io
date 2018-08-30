@@ -32,14 +32,6 @@
     #container.show {
       background: linear-gradient(200deg,#a0cfe4,#e8c37e);
     }
-    .post-copyright{
-    margin: 0em 0em 0em 0em;
-    padding: 0.5em 1em;
-    border-left:3px solid #ff1700;
-    background-color: #f9f9f9;
-    list-style: none;
-    font-size: 14px;
-  }
   </style>
   
 
@@ -61,7 +53,6 @@
     })();
     </script>
 
-  
 </head>
 
 <body>
@@ -258,7 +249,8 @@
 <h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3 - 总结"></a>3 - 总结</h2><p>这节课主要讲了两类不同的探索问题，总步长最短问题和总时间最短问题。这两类问题的共同点在于都无法通过简单的遍历所有情况来得到结果，需要一步一步地向前推进探索新状态，所有它们有一个共同的模式：首先我们需要考虑状态的表达，构造一个<code>successors</code>函数，然后我们需要一个<code>frontier</code>来存放候选的所有<code>path</code>，同时我们需要一个<code>explored</code>来存放已经探索过的状态，防止进入无限循环探索状态。不同点，我们要关注问题是要求哪个参数最短，针对这个问题，我们需要稍加思考，对代码做出相应的改动</p>
 
       
-
+      
+    
       
         <div class="page-reward">
           <a href="javascript:;" class="page-reward-btn tooltip-top">
@@ -496,6 +488,9 @@
     } 
 setInterval("createtime()",250);
 </script>
+<!--页面点击小红心-->
+<script type="text/javascript" src="/love.js"></script>
+
 <span id="busuanzi_container_site_pv">    访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
 
 <span id="busuanzi_container_site_uv">  访客数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
