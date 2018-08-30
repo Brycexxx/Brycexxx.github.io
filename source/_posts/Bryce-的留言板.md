@@ -1,6 +1,5 @@
 ---
 title: Bryce 的留言板
-date: 
-tags:
 ---
-![background](/assets/background.jpg)
+
+<img src='/assets/background.jpg' alt='background' height=300px width='100%' />
