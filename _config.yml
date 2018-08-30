@@ -4,7 +4,7 @@
 
 # Site
 title: Bryce's Blog
-subtitle: Intermittent smug,  continuous eat and die
+subtitle: 永远相信努力
 description: 一个懂点采矿的经常码代码的土木工程研究僧
 keywords: "土木, 采矿, python, flask, tensorflow, keras"
 author: Bryce
@@ -86,7 +86,7 @@ live2d:
     width: 150
     height: 300
   mobile:
-    show: true
+    show: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
