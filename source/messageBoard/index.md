@@ -17,7 +17,7 @@ date: 2018-08-30 17:07:19
             verify: verify,
             app_id: "<%= theme.valine.appid %>",
             app_key: "<%= theme.valine.appkey %>",
-            placeholder: "<%= theme.valine.placeholder %>",
+            placeholder: "由于leancloud体验实例有每天 6 小时的强制休眠时间，所以大家的留言未必能及时知晓，望谅解。若事情紧急，还请邮件联系，谢谢",
             avatar: "<%= theme.valine.avatar %>",
             avatar_cdn: "<%= theme.valine.avatar_cdn %>",
             pageSize: <%= theme.valine.pageSize %>
