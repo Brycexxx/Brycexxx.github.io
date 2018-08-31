@@ -2,6 +2,8 @@
 title: CS212-Lesson3
 date: 2018-08-26 20:31:20
 tags: [test, python, cs212]
+toc: true
+reward: true
 ---
 
 优达学城 CS212 第三课
