@@ -88,6 +88,14 @@ live2d:
   mobile:
     show: false
 
+# 音乐播放器
+# aplayer:
+#   meting: true
+#   style_cdn: https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css
+#   cdn: https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js
+#   meting_cdn: https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js
+#   asset_inject: true
+  
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
