@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Bryce&#39;s Blog">
 <meta property="og:description" content="优达学城 CS212 第四课“倒水”问题">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-26T16:49:00.170Z">
+<meta property="og:updated_time" content="2018-09-11T11:19:44.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CS212-Lesson4">
 <meta name="twitter:description" content="优达学城 CS212 第四课“倒水”问题">
@@ -231,7 +231,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>优达学城 CS212 第四课<br>“倒水”问题<br><a id="more"></a></p>
-<h2 id="1-Water-Pouring-Problem"><a href="#1-Water-Pouring-Problem" class="headerlink" title="1 - Water Pouring Problem"></a>1 - Water Pouring Problem</h2><h3 id="1-1-问题描述"><a href="#1-1-问题描述" class="headerlink" title="1.1 - 问题描述"></a>1.1 - 问题描述</h3><p>给两个容积固定的杯子 A 和 B ，假设 A 和 B 的容积分别为 4 和 9 。杯子上并没有准确刻度，你可以将两只杯子的水互相转移，或者在水龙头处接水，或者将水完全倒掉。问题是如果给定 A 和 B 的最后状态假如 $(0,6)$，找出正确的操作步骤使得两杯的状态达到要求。</p>
+<h2 id="1-Water-Pouring-Problem"><a href="#1-Water-Pouring-Problem" class="headerlink" title="1 - Water Pouring Problem"></a>1 - Water Pouring Problem</h2><h3 id="1-1-问题描述"><a href="#1-1-问题描述" class="headerlink" title="1.1 - 问题描述"></a>1.1 - 问题描述</h3><p>给两个容积固定的杯子 A 和 B ，假设 A 和 B 的容积分别为 4 和 9 。杯子上并没有准确刻度，你可以将两只杯子的水互相转移，或者在水龙头处接水，或者将水完全倒掉。问题是如果给定 A 和 B 的最后状态假如 $ (0,6) $，找出正确的操作步骤使得两杯的状态达到要求。</p>
 <h3 id="1-2-问题分析"><a href="#1-2-问题分析" class="headerlink" title="1.2 - 问题分析"></a>1.2 - 问题分析</h3><p>通过问题描述我们可以发现主要有以下6种操作：将 A 置空，将 A 倒入 B 中，将 A 装满；将 B不进行同样的操作。尽管我们知道如何操作，但是我们却不知道到底要操作多少次。不同于 $ODD+ODD==EVEN$数字映射问题，此种问题我们很清楚地知道只需要为字母挑选 5 个不同的数字来进行验证，也就是说每个候选答案的长度都是相同的。而这个问题，我们并不确定答案的长度，并不知道到底要操作多少次。所以这是一个搜索或者说探索问题，我们无法通过简单的穷举法进行解决。</p>
 <p>前面我们说到共有 6 种不同的操作，也就是说从最初始的状态开始，每当我们面临旧状态比如 $(4,0)$（表示两杯中水量）我们都可以采取不同的动作达到一个新状态。这里有一个问题，当新状态比如 $(4,9)$ 再次产生 $(4,0)$ 时，那么我们的程序很可能就进入了无限的循环之中。所以对于探索问题我们需要设置一个已探索的标记<code>explored</code>用以记录已经探索获得状态防止重复探索陷入无限循环，由于状态不允许重复，故采用集合 set 存储。同时由于我们需要得到的结果是如何操作能达到问题给定的状态，所以还需要一个容器 frontier 用以存储操作顺序，并返回最终结果。对于给定的状态没有正确的答案的情况，为了保证返回值的一致性我们应该返回一个空列表，用以表示没有合适的路径；程序应该在 frontier 中没有待探索的路径的时候终止循环探索。</p>
 <h3 id="1-3-代码实现"><a href="#1-3-代码实现" class="headerlink" title="1.3 - 代码实现"></a>1.3 - 代码实现</h3><p>通过分析知道，首先我们需要实现针对当前状态产生后继新状态的函数，这个函数需要返回我们需要的新状态以及达到新状态需要采取的操作，所以采取字典作为返回值的数据结构：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">successors</span><span class="params">(x, y, X, Y)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    这里 x， y 是当前 A 和 B 的水量状态，X, Y是 A 和 B 的容积</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># x, y 首先得符合基本条件，即不大于容器容积</span></span><br><span class="line">    <span class="keyword">assert</span> x &lt;= X <span class="keyword">and</span> y &lt;= Y</span><br><span class="line">    <span class="keyword">return</span> &#123;((x+y, <span class="number">0</span>) <span class="keyword">if</span> x+y&lt;=X <span class="keyword">else</span> (x+(X-x), y-(X-x))): <span class="string">"X&lt;-Y"</span>,</span><br><span class="line">            ((<span class="number">0</span>, x+y) <span class="keyword">if</span> x+y&lt;=Y <span class="keyword">else</span> (x-(Y-y), y+(Y-y))): <span class="string">"X-&gt;Y"</span>,</span><br><span class="line">            (<span class="number">0</span>, y): <span class="string">"empty X"</span>, (x, <span class="number">0</span>): <span class="string">"empty Y"</span>,</span><br><span class="line">            (X, y): <span class="string">"full X"</span>, (x, Y): <span class="string">"full Y"</span>&#125;</span><br></pre></td></tr></table></figure></p>
@@ -544,10 +544,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">胡说八道</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -556,11 +552,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">胡说八道</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
             
             <div class="clearfix"></div>
