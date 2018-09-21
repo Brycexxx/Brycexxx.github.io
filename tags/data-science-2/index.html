@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Brycexxx.github.io">
-  <title>CS212-Lesson3 | Bryce&#39;s Blog</title>
+  <title>Tag: data_science_2 | Bryce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="优达学城 CS212 第三课多参数问题">
-<meta name="keywords" content="test,python,cs212">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CS212-Lesson3">
-<meta property="og:url" content="https://Brycexxx.github.io/2018/08/26/test1/index.html">
+  <meta name="description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta name="keywords" content="土木, 采矿, python, flask, tensorflow, keras">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bryce&#39;s Blog">
+<meta property="og:url" content="https://Brycexxx.github.io/tags/data-science-2/index.html">
 <meta property="og:site_name" content="Bryce&#39;s Blog">
-<meta property="og:description" content="优达学城 CS212 第三课多参数问题">
+<meta property="og:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/e7900ef2ly1fprqe1o82aj20l40dkwex.jpg">
-<meta property="og:updated_time" content="2018-08-31T12:11:32.840Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CS212-Lesson3">
-<meta name="twitter:description" content="优达学城 CS212 第三课多参数问题">
-<meta name="twitter:image" content="http://wx3.sinaimg.cn/mw690/e7900ef2ly1fprqe1o82aj20l40dkwex.jpg">
+<meta name="twitter:title" content="Bryce&#39;s Blog">
+<meta name="twitter:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
   
     <link rel="alternative" href="/atom.xml" title="Bryce&#39;s Blog" type="application/atom+xml">
   
@@ -202,270 +199,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-test1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      CS212-Lesson3
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/09/21/Assignment3/" class="archive-article-date">
+  	<time datetime="2018-09-21T04:53:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/09/21/Assignment3/">Assignment3</a>
     </h1>
   
 
-        <!--显示阅读次数-->
-        
-          <br/>
-          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-          <span class="icon-sort"></span>
-          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-          </span>
-          </a>
+        <div class="article-info info-on-right">
           
-        
-        <a href="/2018/08/26/test1/" class="archive-article-date">
-  	<time datetime="2018-08-26T12:31:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>优达学城 CS212 第三课<br>多参数问题<br><a id="more"></a></p>
-<h2 id="1-多参数函数"><a href="#1-多参数函数" class="headerlink" title="1 - 多参数函数"></a>1 - 多参数函数</h2><h3 id="1-1-修改函数需要考虑的因素"><a href="#1-1-修改函数需要考虑的因素" class="headerlink" title="1.1 - 修改函数需要考虑的因素"></a>1.1 - 修改函数需要考虑的因素</h3><p>有些函数固定只含有一个参数或者两个参数，在某些时候我们需要同时传入多个参数实现相同功能的会十分不方便，举个例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自定义一个加法函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></table></figure></p>
-<p>这个时候我们就只能传入两个参数，实现两个数的加法，而很多时候我们需要实现多个数相加，这时上面的sum函数就不能满足我们的要求（当然python内置的sum函数是可以多数相加的）。</p>
-<p>在真实情况下，我们需要考虑两个因素。因为这个函数会和其他许多函数产生关联，被其他函数调用。比如如果我们直接修改了传入参数的数目，那么其他函数通过两个参数调用的方式便发生错误；或者我们修改了返回值的形式，同样会造成其他函数的错误。所有修改的第一个原则就是保证<strong>向后兼容（backward compatible）</strong>，即保证原有的调用方式依然有效。</p>
-<p>第二个需要考虑的因素就是<strong>外部修改（external）</strong>和<strong>内部修改（internal）</strong>。如果我们进行了内外部修改，但是保证其他函数的正确调用，那么此时仍是向后兼容的。比如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">seq</span><span class="params">(x, y)</span>:</span> <span class="keyword">return</span> (<span class="string">'seq'</span>, x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设进行修改后，可接受多个参数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">seq</span><span class="params">(x, y, z)</span>:</span></span><br><span class="line">   <span class="comment">#return ('seq', x, y, z)                                 --1</span></span><br><span class="line">    <span class="keyword">return</span> (<span class="string">'seq'</span>, x, (<span class="string">'seq'</span>, y, z))                        -<span class="number">-2</span></span><br></pre></td></tr></table></figure></p>
-<p>为什么在修改后我们采取第二种返回形式呢，因为其他函数获取此函数返回的形式就是第二种，你给它返回4个值，它就不知道了。</p>
-<h3 id="1-2-内外部修改函数"><a href="#1-2-内外部修改函数" class="headerlink" title="1.2 - 内外部修改函数"></a>1.2 - 内外部修改函数</h3><p>下面我们进行<code>seq</code>函数的修改，函数由<code>seq(x, y)</code>变为<code>seq(x, *args)</code>。相应地，函数内部也要进行修改：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">seq</span><span class="params">(x, *args)</span>:</span></span><br><span class="line">    <span class="comment"># 保持两个参数时依然可以调用，并和之前的结果一致</span></span><br><span class="line">    <span class="keyword">if</span> len(args) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">'seq'</span>, x, args[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">'seq'</span>, x, seq(*args))</span><br></pre></td></tr></table></figure></p>
-<p>可以看到，其实这样修改不难，但是依然要写多行代码重新定义<code>seq</code>函数，如果我们还存在例如<code>alt(x, y)</code>，那么我们要对<code>alt</code>做出和<code>seq</code>函数同样的内外部修改。这时我们就违背了“不要重复自己”原则（Don’t repeat Yourself），代码出现了大量冗余。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">alt</span><span class="params">(x, y)</span>:</span> <span class="keyword">return</span> (<span class="string">'alt'</span>, x, y)</span><br></pre></td></tr></table></figure></p>
-<p>那么最好的方式是什么呢？函数具有很好的组合效果，所以我们可以定义一个函数，传入要修改的函数，然后在此函数内部进行调用，最后返回一个可以接受多个参数的新函数。定义函数<code>n_ary(f)</code>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">n_ary</span><span class="params">(f)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Given binary function f(x, y), return an n_ary function such that f(x, y, z) = f(x, f(y,z)), etc. Also allow f(x) = x.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">n_ary_f</span><span class="params">(x, *args)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> x <span class="keyword">if</span> <span class="keyword">not</span> args <span class="keyword">else</span> f(x, n_ary_f(*args))</span><br><span class="line">    <span class="keyword">return</span> n_ary_f</span><br></pre></td></tr></table></figure></p>
-<p>对于上面的<code>*args</code>我我们可能被并不是很清楚函数到底是怎么处理的。通过试验我们发现其实<code>*args</code>其实把传入的第一个参数之外的多个参数打包成了一个元组（tuple），以下是试验过程:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">seq</span><span class="params">(x, y)</span>:</span> <span class="keyword">return</span> (<span class="string">'seq'</span>, x, y)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">n_ary</span><span class="params">(f)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">n_ary_f</span><span class="params">(x, *args)</span>:</span></span><br><span class="line">    <span class="comment"># 打印查看args到底是什么形式</span></span><br><span class="line">        print(args)</span><br><span class="line">        <span class="keyword">return</span> x <span class="keyword">if</span> <span class="keyword">not</span> args <span class="keyword">else</span> f(x, n_ary_f(*args))</span><br><span class="line">    <span class="keyword">return</span> n_ary_f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印一下修改之前的结果</span></span><br><span class="line">print(seq(<span class="string">'a'</span>, <span class="string">'b'</span>))</span><br><span class="line">print(<span class="string">'*'</span>*<span class="number">40</span>)</span><br><span class="line"><span class="comment"># 将seq传入修改函数内返回一个可接受多参数的新函数</span></span><br><span class="line">mulSeq = n_ary(seq)</span><br><span class="line">print(mulSeq(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>))</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">以下是试验结果：</span><br><span class="line">修改之前的结果：(<span class="string">'seq'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>)</span><br><span class="line">args在递归过程中的变化：(<span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br><span class="line">                        (<span class="string">'c'</span>, <span class="string">'d'</span>)</span><br><span class="line">                        (<span class="string">'d'</span>,)</span><br><span class="line">                        ()</span><br><span class="line">最终的返回结果：(<span class="string">'seq'</span>, <span class="string">'a'</span>, (<span class="string">'seq'</span>, <span class="string">'b'</span>, (<span class="string">'seq'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)))</span><br></pre></td></tr></table></figure></p>
-<p>通过上面的结果我们可以发现args以元组的形式进入内部，当再次传入递归函数内，通过<code>*</code>将元组解开，并拿出一个放到第一个参数位置，剩下的重新以元组的形式再次传入函数内部。</p>
-<h3 id="1-3-装饰器"><a href="#1-3-装饰器" class="headerlink" title="1.3 - 装饰器"></a>1.3 - 装饰器</h3><p>事实上，上述修改函数的函数我们有一个术语叫做<strong>装饰器（decorator）</strong>。上面我们通过<code>mulSeq = n_ary(seq)</code>来修改函数返回新函数，这并不够简洁，python有专门用作装饰器的标记<code>@</code>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@n_ary</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">seq</span><span class="params">(x, y)</span>:</span> <span class="keyword">return</span> (<span class="string">'seq'</span>, x, y)</span><br></pre></td></tr></table></figure></p>
-<p>上面这种方式还不完善，当我们使用<code>help</code>函数查看参数列表和文档说明，就出现问题了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>help(seq)</span><br><span class="line">Help on function n_ary_f <span class="keyword">in</span> module __main__:</span><br></pre></td></tr></table></figure></p>
-<p>当我们重新定义<code>seq</code>函数之后，函数名被自然地修改为<code>n_ary_f</code>，所以此时我们需要进一步修改函数以便能够返回原函数名以及相应说明文档。</p>
-<p>此时我们需要导入python内置库，<code>functools</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> update_wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">n_ary</span><span class="params">(f)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">n_ary_f</span><span class="params">(x, *args)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> x <span class="keyword">if</span> <span class="keyword">not</span> args <span class="keyword">else</span> f(x, n_ary_f(*args))</span><br><span class="line">    <span class="comment"># 将原函数f的名字以及文档复制到新函数n_ary_f</span></span><br><span class="line">    update_wrapper(n_ary_f, f)</span><br><span class="line">    <span class="keyword">return</span> n_ary_f</span><br></pre></td></tr></table></figure></p>
-<p>此时<code>help</code>的结果就变成了：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Help on function seq <span class="keyword">in</span> module __main__:</span><br></pre></td></tr></table></figure></p>
-<p>但是还有一个问题，貌似我们又违背了不重复原则，不光是对于<code>n_ary</code>装饰器我们需要在内部使用<code>update_wrapper</code>，每一个装饰器都应该有这个功能，所以我们应该考虑一个一劳永逸的办法。给装饰器函数也定义一个装饰器就可以解决这个问题：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> update_wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(d)</span>:</span></span><br><span class="line">    <span class="string">"make function d a decorator: d wraps a function fn"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_d</span><span class="params">(fn)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> update_wrapper(d(fn), fn)</span><br><span class="line">    update_wrapper(_d, d)</span><br><span class="line">    <span class="keyword">return</span> _d</span><br><span class="line">    </span><br><span class="line"><span class="meta">@decorator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">n_ary</span><span class="params">(f)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Given binary function f(x, y), return an n_ary function such that f(x, y, z) = f(x, f(y,z)), etc. Also allow f(x) = x.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">n_ary_f</span><span class="params">(x, *args)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> x <span class="keyword">if</span> <span class="keyword">not</span> args <span class="keyword">else</span> f(x, n_ary_f(*args))</span><br><span class="line">    <span class="keyword">return</span> n_ary_f</span><br></pre></td></tr></table></figure></p>
-<p>以上的<code>decorator</code>函数一次性解决了这个问题。原理如下，首先<code>n_ary</code>函数作为参数传入<code>decorator</code>函数，内部的<code>_d</code>函数就是<code>n_ary</code>函数被装饰过的新函数。在<code>_d</code>内部，<code>fn</code>就是作为参数传入<code>_d</code>的<code>seq</code>，所以在这里将<code>seq</code>复制到了<code>n_ary(f)</code>也就是<code>n_ary_f</code>。<br>一种更简洁的写法，使用了<code>lambda</code>函数，将<code>decorator</code>函数修改为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(d)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> fn: update_wrapper(d(fn), fn)</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-memoization"><a href="#2-memoization" class="headerlink" title="2 - memoization"></a>2 - memoization</h2><p>在计算机科学中，记忆化是一种提高进程运行速度的优化技术。通过储存大计算量函数的返回值，当这个结果再次被需要时将其从缓存提取，而不用再次计算来节省计算时间。 </p>
-<p>同样我们还是采取装饰器的方式对函数进行修改，这里以斐波那契数列作为例子，首先定义斐波那契函数:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span> <span class="keyword">return</span> <span class="number">1</span> <span class="keyword">if</span> n &lt;= <span class="number">1</span> <span class="keyword">else</span> fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</span><br></pre></td></tr></table></figure></p>
-<p>在斐波那契数列的计算过程中，普通的计算方法会将某些值计算多次，例如：<br>$$fib(5) = fib(4) + fib(3)$$ $$fib(4) = fib(3) + fib(2)$$ $$fib(3) = fib(2) + fib(1)$$<br>在上面的三次计算中 $n=2,3$ 的时候被计算了多次，如果我们设计一个缓存将前面已经计算过的结果保存下来，那么再次计算这个值的时候，我们可以直接在缓存中查询获取，这样就大大提高了计算效率。下面我们定义一个缓存装饰器，并同时定义一个调用次数计数器：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@decorator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">memo</span><span class="params">(f)</span>:</span></span><br><span class="line">	<span class="string">"""</span></span><br><span class="line"><span class="string">	Decorator that caches the return value for each call to </span></span><br><span class="line"><span class="string">	to f(args). Then when called again with same args, we can</span></span><br><span class="line"><span class="string">	just look it up. </span></span><br><span class="line"><span class="string">	"""</span></span><br><span class="line">	cache = &#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_f</span><span class="params">(*args)</span>:</span></span><br><span class="line">	    <span class="comment"># print(args)</span></span><br><span class="line">	    <span class="comment"># print(cache)</span></span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			<span class="keyword">return</span> cache[args]</span><br><span class="line">		<span class="keyword">except</span> KeyError:</span><br><span class="line">		    print(<span class="string">'*'</span>*<span class="number">30</span>)</span><br><span class="line">			cache[args] = result = f(*args)</span><br><span class="line">			<span class="keyword">return</span> result</span><br><span class="line">		<span class="keyword">except</span> TypeError:</span><br><span class="line">			<span class="comment"># some element of args can't be a dict key.eg a list [1, 2, 3]</span></span><br><span class="line">			<span class="keyword">return</span> f(args)</span><br><span class="line">	<span class="keyword">return</span> _f</span><br><span class="line">	</span><br><span class="line"><span class="meta">@decorator </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countcalls</span><span class="params">(f)</span>:</span></span><br><span class="line">	<span class="string">"decorator that makes the function count calls to it, in callcounts[f]."</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_f</span><span class="params">(*args)</span>:</span></span><br><span class="line">		callcounts[_f] += <span class="number">1</span></span><br><span class="line">		<span class="comment"># print('call count')</span></span><br><span class="line">		<span class="keyword">return</span> f(*args)</span><br><span class="line">	callcounts[_f] = <span class="number">0</span></span><br><span class="line">	<span class="keyword">return</span> _f</span><br></pre></td></tr></table></figure></p>
-<p>然后再执行<code>fib</code>函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不加缓存器</span></span><br><span class="line"><span class="meta">@countcalls</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span> </span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> <span class="keyword">if</span> n &lt;= <span class="number">1</span> <span class="keyword">else</span> fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</span><br><span class="line">	</span><br><span class="line">callcounts = &#123;&#125;</span><br><span class="line">print(fib(<span class="number">5</span>), callcounts)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">8</span> &#123;&lt;function fib at <span class="number">0x7fc7468e7510</span>&gt;: <span class="number">15</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加缓存器</span></span><br><span class="line"><span class="meta">@countcalls</span></span><br><span class="line"><span class="meta">@memo</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span> </span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> <span class="keyword">if</span> n &lt;= <span class="number">1</span> <span class="keyword">else</span> fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</span><br><span class="line">	</span><br><span class="line">callcounts = &#123;&#125;</span><br><span class="line">print(fib(<span class="number">5</span>), callcounts)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">8</span> &#123;&lt;function fib at <span class="number">0x7fc7468e7510</span>&gt;: <span class="number">9</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>显然，调用次数减少了6次，当n越大，使用缓存装饰器的优势将越明显。</p>
-<p>对于我来说这里同时出现了两个装饰器函数还有递归，实在有些糊涂了。于是我进行了一定探索，希望搞清楚执行顺序。</p>
-<p>通过添加print打印出相关结果，<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">memo</span><br><span class="line">countcalls</span><br><span class="line">call count</span><br><span class="line">(<span class="number">5</span>,)</span><br><span class="line">&#123;&#125;</span><br><span class="line">******************************</span><br><span class="line">call count</span><br><span class="line">(<span class="number">4</span>,)</span><br><span class="line">&#123;&#125;</span><br><span class="line">******************************</span><br><span class="line">call count</span><br><span class="line">(<span class="number">3</span>,)</span><br><span class="line">&#123;&#125;</span><br><span class="line">******************************</span><br><span class="line">call count</span><br><span class="line">(<span class="number">2</span>,)</span><br><span class="line">&#123;&#125;</span><br><span class="line">******************************</span><br><span class="line">call count</span><br><span class="line">(<span class="number">1</span>,)</span><br><span class="line">&#123;&#125;</span><br><span class="line">******************************</span><br><span class="line">call count</span><br><span class="line">(<span class="number">0</span>,)</span><br><span class="line">&#123;(<span class="number">1</span>,): <span class="number">1</span>&#125;</span><br><span class="line">******************************</span><br><span class="line">call count</span><br><span class="line">(<span class="number">1</span>,)</span><br><span class="line">&#123;(<span class="number">1</span>,): <span class="number">1</span>, (<span class="number">0</span>,): <span class="number">1</span>, (<span class="number">2</span>,): <span class="number">2</span>&#125;</span><br><span class="line">call count</span><br><span class="line">(<span class="number">2</span>,)</span><br><span class="line">&#123;(<span class="number">1</span>,): <span class="number">1</span>, (<span class="number">0</span>,): <span class="number">1</span>, (<span class="number">2</span>,): <span class="number">2</span>, (<span class="number">3</span>,): <span class="number">3</span>&#125;</span><br><span class="line">call count</span><br><span class="line">(<span class="number">3</span>,)</span><br><span class="line">&#123;(<span class="number">1</span>,): <span class="number">1</span>, (<span class="number">0</span>,): <span class="number">1</span>, (<span class="number">2</span>,): <span class="number">2</span>, (<span class="number">3</span>,): <span class="number">3</span>, (<span class="number">4</span>,): <span class="number">5</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>通过分析上述结果，可以知道装饰器函数调用的顺序为自下向上，然儿产生装饰作用的顺序是由上到下，首先 $n=5$ 从<code>countcalls</code>开始计数，然后达到<code>memo</code>。在这个斐波那契二叉树中红色的部分即添加缓存装饰器函数之后发生调用的9次，可以看到在这个二叉树中，直到 $n=1$，cache才不为空，当 $n=0$ 时，已经有缓存了。之后开始回溯，0之后的1，2，3直接可以从缓存中获取结果。<br><img src="http://wx3.sinaimg.cn/mw690/e7900ef2ly1fprqe1o82aj20l40dkwex.jpg" alt="此处输入图片的描述"></p>
-
-      
-      
-    
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃🍗<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">coursera</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cs212</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_science_2</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://Brycexxx.github.io/2018/08/26/test1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/08/26/test2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CS212-Lesson4
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/08/26/test/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">FP_growth算法说明</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-多参数函数"><span class="toc-number">1.</span> <span class="toc-text">1 - 多参数函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-修改函数需要考虑的因素"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 - 修改函数需要考虑的因素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-内外部修改函数"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 - 内外部修改函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-装饰器"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 - 装饰器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-memoization"><span class="toc-number">2.</span> <span class="toc-text">2 - memoization</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-    <section id="comments" class="comments">
-      <style>
-        .comments{margin:30px;padding:10px;background:#fff}
-        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-      </style>
-      <div id="vcomment" class="comment"></div>
-<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
-<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-   new Valine({
-            av: AV,
-            el: '#vcomment',
-            notify: notify,
-            verify: verify,
-            app_id: "gzE0z8RUfCAd6dmjY2H00HIe-gzGzoHsz",
-            app_key: "t55oLrwc8aTKChJLP1ijYzyy",
-            placeholder: "由于leancloud体验实例有每天 6 小时的强制休眠时间，所以大家的评论未必能及时知晓，望谅解。 若事情紧急，还请邮件联系，谢谢",
-            avatar: "monsterid",
-            avatar_cdn: "https://sdn.geekzu.org/avatar/",
-            pageSize: 10
-    });
-</script>
-    </section>
-  
-  
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-
-
-
+    
 
 
           </div>
@@ -513,9 +304,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
