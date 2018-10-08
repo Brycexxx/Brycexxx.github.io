@@ -49,7 +49,7 @@ reward_wording: '谢谢你请我吃🍗'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
 alipay: 
 # 微信二维码图片地址
-weixin: /assets/wechatpay.jpg
+weixin: https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181008150349.jpg
 
 # 目录
 # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
@@ -66,7 +66,7 @@ top: true
 baidu_tongji: true
 baidu_analytics: ''
 google_analytics: ''
-favicon: /favicon.png
+favicon: https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181008142236.ico
 
 #你的头像url
 avatar: https://raw.githubusercontent.com/Brycexxx/BlogComments/master/avatar1.jpg
