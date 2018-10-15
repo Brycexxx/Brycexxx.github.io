@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Brycexxx.github.io">
-  <title>vim的简单使用 | Bryce&#39;s Blog</title>
+  <title>Bryce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命令vim启动vim编辑器vim + 目标文件路径 使用vim（若文件存在，则vim打开该文件；若不存在，则vim新建该文件）">
-<meta name="keywords" content="vim">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vim的简单使用">
-<meta property="og:url" content="https://Brycexxx.github.io/2018/08/27/vim的简单使用/index.html">
+  <meta name="description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta name="keywords" content="土木, 采矿, python, flask, tensorflow, keras">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bryce&#39;s Blog">
+<meta property="og:url" content="https://Brycexxx.github.io/page/2/index.html">
 <meta property="og:site_name" content="Bryce&#39;s Blog">
-<meta property="og:description" content="命令vim启动vim编辑器vim + 目标文件路径 使用vim（若文件存在，则vim打开该文件；若不存在，则vim新建该文件）">
+<meta property="og:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T07:55:07.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim的简单使用">
-<meta name="twitter:description" content="命令vim启动vim编辑器vim + 目标文件路径 使用vim（若文件存在，则vim打开该文件；若不存在，则vim新建该文件）">
+<meta name="twitter:title" content="Bryce&#39;s Blog">
+<meta name="twitter:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
   
     <link rel="alternative" href="/atom.xml" title="Bryce&#39;s Blog" type="application/atom+xml">
   
@@ -200,63 +199,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vim的简单使用" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      vim的简单使用
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/26/test/">FP_growth算法说明</a>
     </h1>
   
 
         <!--显示阅读次数-->
         
-          <br/>
-          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-          <span class="icon-sort"></span>
-          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-          </span>
-          </a>
-          
         
-        <a href="/2018/08/27/vim的简单使用/" class="archive-article-date">
-  	<time datetime="2018-08-27T07:47:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+        <a href="/2018/08/26/test/" class="archive-article-date">
+  	<time datetime="2018-08-26T07:50:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>命令vim启动vim编辑器<br>vim + 目标文件路径 使用vim<br>（若文件存在，则vim打开该文件；若不存在，则vim新建该文件）<br><a id="more"></a></p>
-<h2 id="三种模式"><a href="#三种模式" class="headerlink" title="三种模式"></a>三种模式</h2><ul>
-<li>命令模式：启动后默认进入命令模式，任何模式都可以通过esc回到命令模式</li>
-<li>插入模式：i 键进入</li>
-<li>ex模式：在命令模式下按 “:” 进入ex模式，光标会移动到底部，在这里可以保存修改或退出vim</li>
-</ul>
-<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><ul>
-<li>i          在光标前插入文本；</li>
-<li>o         在当前行的下面插入新行；</li>
-<li>dd       删除整行</li>
-<li>yy      将当前行的内容放入缓冲区（复制当前行）</li>
-<li>n+yy     复制n行</li>
-<li>p        将缓冲区的文本放入光标后（粘贴）</li>
-<li>u       撤销上一个操作</li>
-<li>r        替换当前字符</li>
-<li>/        查找关键字（按n在查找到的结果之间切换）</li>
-</ul>
-<h3 id="ex模式"><a href="#ex模式" class="headerlink" title="ex模式"></a>ex模式</h3><ul>
-<li>:w            保存当前修改</li>
-<li>:q                退出</li>
-<li>:q!            强制退出，不保存修改</li>
-<li>:x                保存并退出，相当于 :wq</li>
-<li>:set number        显示行号</li>
-<li>:!                系统命令，执行一个系统命令并显示结果</li>
-<li>:sh            切换到命令行，使用crtl+d切换回vim</li>
-</ul>
-
+        <p>FP-Growth算法是韩嘉炜等人在2000年提出的关联分析算法，它采取如下分治策略：将提供频繁项集的数据库压缩到一棵频繁模式树（FP-tree），但仍保留项集关联信息。<br>在算法中使用了一种称为频繁模式树（Frequent Pattern Tree）的数据结构。FP-tree是一种特殊的前缀树，由频繁项头表和项前缀树构成。FP-Growth算法基于以上的结构加快整个挖掘过程。<br>
+        
       
       
     
@@ -270,7 +238,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
         		</li>
       		
 		</ul>
@@ -279,84 +247,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/26/test/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://Brycexxx.github.io/2018/08/27/vim的简单使用/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/08/27/一出好戏/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一出好戏
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/08/27/test3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">peter</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -376,47 +276,16 @@
 
 
 
-  
-    <section id="comments" class="comments">
-      <style>
-        .comments{margin:30px;padding:10px;background:#fff}
-        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-      </style>
-      <div id="vcomment" class="comment"></div>
-<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
-<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-   new Valine({
-            av: AV,
-            el: '#vcomment',
-            notify: notify,
-            verify: verify,
-            app_id: "gzE0z8RUfCAd6dmjY2H00HIe-gzGzoHsz",
-            app_key: "t55oLrwc8aTKChJLP1ijYzyy",
-            placeholder: "由于leancloud体验实例有每天 6 小时的强制休眠时间，所以大家的评论未必能及时知晓，望谅解。 若事情紧急，还请邮件联系，谢谢",
-            avatar: "monsterid",
-            avatar_cdn: "https://sdn.geekzu.org/avatar/",
-            pageSize: 10
-    });
-</script>
-    </section>
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
 
 
 
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -463,8 +332,8 @@ setInterval("createtime()",250);
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
