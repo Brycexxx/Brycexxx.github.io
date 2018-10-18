@@ -1,5 +1,5 @@
 ---
-title: Assignment2
+title: Assignment 2
 date: 2018-10-18 15:44:31
 tags: [coursera, data_science_3]
 toc: true
