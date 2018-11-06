@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Brycexxx.github.io">
-  <title>Tag: test | Bryce&#39;s Blog</title>
+  <title>c4-assignment1 | Bryce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个懂点采矿的经常码代码的土木工程研究僧">
-<meta name="keywords" content="土木, 采矿, python, flask, tensorflow, keras">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bryce&#39;s Blog">
-<meta property="og:url" content="https://Brycexxx.github.io/tags/test/index.html">
+  <meta name="description" content="In this assignment, you’ll be working with messy medical data and using regex to extract relevant infromation from the data.  Each line of the dates.txt file corresponds to a medical note. Each note h">
+<meta name="keywords" content="coursera,data_science_4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c4-assignment1">
+<meta property="og:url" content="https://Brycexxx.github.io/2018/11/06/c4-assignment1/index.html">
 <meta property="og:site_name" content="Bryce&#39;s Blog">
-<meta property="og:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta property="og:description" content="In this assignment, you’ll be working with messy medical data and using regex to extract relevant infromation from the data.  Each line of the dates.txt file corresponds to a medical note. Each note h">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181106184819.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181106190741.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181106191714.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181106193447.jpg">
+<meta property="og:updated_time" content="2018-11-06T11:40:11.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bryce&#39;s Blog">
-<meta name="twitter:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta name="twitter:title" content="c4-assignment1">
+<meta name="twitter:description" content="In this assignment, you’ll be working with messy medical data and using regex to extract relevant infromation from the data.  Each line of the dates.txt file corresponds to a medical note. Each note h">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181106184819.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Bryce&#39;s Blog" type="application/atom+xml">
   
@@ -199,152 +205,303 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-c4-assignment1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      c4-assignment1
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+          
+        
+        <a href="/2018/11/06/c4-assignment1/" class="archive-article-date">
+  	<time datetime="2018-11-06T10:27:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-06</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In this assignment, you’ll be working with messy medical data and using regex to extract relevant infromation from the data. </p>
+<p>Each line of the <a href="https://github.com/Brycexxx/data/blob/master/dates.txt" target="_blank" rel="noopener">dates.txt</a> file corresponds to a medical note. Each note has a date that needs to be extracted, but each date is encoded in one of many formats.</p>
+<a id="more"></a>
+<p>The goal of this assignment is to correctly identify all of the different date variants encoded in this dataset and to properly normalize and sort the dates. </p>
+<p>Here is a list of some of the variants you might encounter in this dataset:</p>
+<ul>
+<li>04/20/2009; 04/20/09; 4/20/09; 4/3/09</li>
+<li>Mar-20-2009; Mar 20, 2009; March 20, 2009;  Mar. 20, 2009; Mar 20 2009;</li>
+<li>20 Mar 2009; 20 March 2009; 20 Mar. 2009; 20 March, 2009</li>
+<li>Mar 20th, 2009; Mar 21st, 2009; Mar 22nd, 2009</li>
+<li>Feb 2009; Sep 2009; Oct 2010</li>
+<li>6/2008; 12/2009</li>
+<li>2009; 2010</li>
+</ul>
+<p>Once you have extracted these date patterns from the text, the next step is to sort them in ascending chronological order accoring to the following rules:</p>
+<ul>
+<li>Assume all dates in xx/xx/xx format are mm/dd/yy</li>
+<li>Assume all dates where year is encoded in only two digits are years from the 1900’s (e.g. 1/5/89 is January 5th, 1989)</li>
+<li>If the day is missing (e.g. 9/2009), assume it is the first day of the month (e.g. September 1, 2009).</li>
+<li>If the month is missing (e.g. 2010), assume it is the first of January of that year (e.g. January 1, 2010).</li>
+<li>Watch out for potential typos as this is a raw, real-life derived dataset.</li>
+</ul>
+<p>With these rules in mind, find the correct date in each note and return a pandas Series in chronological order of the original Series’ indices.</p>
+<p>For example if the original series was this:</p>
+<pre><code>0    1999
+1    2010
+2    1978
+3    2015
+4    1985
+</code></pre><p>Your function should return this:</p>
+<pre><code>0    2
+1    4
+2    0
+3    1
+4    3
+</code></pre><p>Your score will be calculated using <a href="https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient" target="_blank" rel="noopener">Kendall’s tau</a>, a correlation measure for ordinal data.</p>
+<p><em>This function should return a Series of length 500 and dtype int.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">doc = []</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'dates.txt'</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">        doc.append(line)</span><br><span class="line"></span><br><span class="line">df = pd.Series(doc)</span><br><span class="line">df.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>0         03/25/93 Total time of visit (in minutes):\n
+1                       6/18/85 Primary Care Doctor:\n
+2    sshe plans to move as of 7/8/71 In-Home Servic...
+3                7 on 9/27/75 Audit C Score Current:\n
+4    2/6/96 sleep studyPain Treatment Pain Level (N...
+5                    .Per 7/06/79 Movement D/O note:\n
+6    4, 5/18/78 Patient&apos;s thoughts about current su...
+7    10/24/89 CPT Code: 90801 - Psychiatric Diagnos...
+8                         3/7/86 SOS-10 Total Score:\n
+9             (4/10/71)Score-1Audit C Score Current:\n
+dtype: object
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 贪心，希望可以一次性解决，结果提取了比较多没用的数字出来又很难剔除，只好作罢</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">pattern = <span class="string">r'(\d&#123;1,2&#125;|(Jan|Feb|Mar|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*)?[-/\s\.,]*(\d&#123;1,2&#125;[a-z]&#123;,2&#125;|(Jan|Feb|Mar|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*)?[-\s/\.,]*(\d&#123;2,4&#125;)'</span></span><br><span class="line">ptn = re.compile(pattern)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初步分析，按日期模式分段</span></span><br><span class="line">first_interval = df.iloc[<span class="number">0</span>: <span class="number">125</span>] <span class="comment"># mm/dd/yy</span></span><br><span class="line">second_interval = df.iloc[<span class="number">125</span>: <span class="number">194</span>] <span class="comment"># 20 Mar 2009</span></span><br><span class="line">third_interval = df.iloc[<span class="number">194</span>: <span class="number">228</span>] <span class="comment"># March 20, 2009   September. 15, 2011</span></span><br><span class="line">forth_interval = df.iloc[<span class="number">228</span>: <span class="number">343</span>] <span class="comment"># Feb 2009    Feb, 2009</span></span><br><span class="line">fifth_interval = df.iloc[<span class="number">343</span>: <span class="number">455</span>] <span class="comment"># 12/2009</span></span><br><span class="line">sixth_interval = df.iloc[<span class="number">455</span>:]  <span class="comment">#2010</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">date_sorter</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    word_map_digits = &#123;<span class="string">'Jan'</span>: <span class="number">1</span>, <span class="string">'Feb'</span>: <span class="number">2</span>, <span class="string">'Mar'</span>: <span class="number">3</span>, <span class="string">'Apr'</span>: <span class="number">4</span>, <span class="string">'May'</span>: <span class="number">5</span>, <span class="string">'Jun'</span>: <span class="number">6</span>, <span class="string">'Jul'</span>: <span class="number">7</span>, <span class="string">'Aug'</span>: <span class="number">8</span>, <span class="string">'Sep'</span>: <span class="number">9</span>, <span class="string">'Oct'</span>: <span class="number">10</span>, <span class="string">'Nov'</span>: <span class="number">11</span>, <span class="string">'Dec'</span>: <span class="number">12</span>&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_19</span><span class="params">(df)</span>:</span></span><br><span class="line">        two_digits_year = df[<span class="string">'year'</span>].str.len() &lt;= <span class="number">2</span></span><br><span class="line">        df[<span class="string">'year'</span>][two_digits_year] = df[<span class="string">'year'</span>][two_digits_year].apply(<span class="keyword">lambda</span> x: <span class="string">'19'</span> + x)</span><br><span class="line">        <span class="keyword">return</span> df</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">word_to_digits</span><span class="params">(row)</span>:</span></span><br><span class="line">        mon = row[<span class="string">'month'</span>][:<span class="number">3</span>]</span><br><span class="line">        row[<span class="string">'month'</span>] = word_map_digits[mon]</span><br><span class="line">        <span class="keyword">return</span> row</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">str_to_int</span><span class="params">(row)</span>:</span></span><br><span class="line">        row = [int(s) <span class="keyword">for</span> s <span class="keyword">in</span> row]</span><br><span class="line">        <span class="keyword">return</span> row</span><br><span class="line">    </span><br><span class="line">    first_interval = df.iloc[<span class="number">0</span>: <span class="number">125</span>] <span class="comment"># mm/dd/yy</span></span><br><span class="line">    second_interval = pd.concat([df.iloc[<span class="number">125</span>: <span class="number">194</span>], df.iloc[<span class="number">228</span>: <span class="number">343</span>]]) <span class="comment"># 20 Mar 2009  Feb 2009    Feb, 2009</span></span><br><span class="line">    third_interval = df.iloc[<span class="number">194</span>: <span class="number">228</span>] <span class="comment"># March 20, 2009   September. 15, 2011</span></span><br><span class="line">    forth_interval = df.iloc[<span class="number">343</span>: <span class="number">455</span>] <span class="comment"># 12/2009</span></span><br><span class="line">    fifth_interval = df.iloc[<span class="number">455</span>:]  <span class="comment">#2010</span></span><br><span class="line">    </span><br><span class="line">    first_pattern = <span class="string">r'(\d&#123;1,2&#125;)[/-](\d&#123;1,2&#125;)[/-](\d&#123;2,4&#125;)'</span></span><br><span class="line">    second_pattern = <span class="string">r'(\d&#123;1,2&#125;)?[\s\.,]&#123;,2&#125;((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*)[\s\.,]&#123;,2&#125;(\d&#123;2,4&#125;)'</span></span><br><span class="line">    third_pattern = <span class="string">r'((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*)[\s\.,]&#123;,2&#125;(\d&#123;1,2&#125;[a-z]&#123;,2&#125;)[\s\.,]&#123;,2&#125;(\d&#123;2,4&#125;)'</span></span><br><span class="line">    forth_pattern = <span class="string">r'(\d&#123;1,2&#125;)/(\d&#123;2,4&#125;)'</span></span><br><span class="line">    fifth_pattern = <span class="string">r'(\d&#123;4&#125;)'</span></span><br><span class="line">    </span><br><span class="line">    first = first_interval.str.extractall(first_pattern)</span><br><span class="line">    first = first.drop(<span class="number">1</span>, level=<span class="number">1</span>).rename(columns=&#123;<span class="number">0</span>: <span class="string">'month'</span>, <span class="number">1</span>: <span class="string">'day'</span>, <span class="number">2</span>: <span class="string">'year'</span>&#125;)</span><br><span class="line">    first.index = first.index.droplevel(<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    second = second_interval.str.extractall(second_pattern)</span><br><span class="line">    second = second.drop(<span class="number">1</span>, level=<span class="number">1</span>).rename(columns=&#123;<span class="number">0</span>: <span class="string">'day'</span>, <span class="number">1</span>: <span class="string">'month'</span>, <span class="number">2</span>: <span class="string">'year'</span>&#125;)</span><br><span class="line">    second.index = second.index.droplevel(<span class="number">1</span>)</span><br><span class="line">    second = second.apply(word_to_digits, axis=<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    third = third_interval.str.extractall(third_pattern)</span><br><span class="line">    third = third.drop(<span class="number">1</span>, level=<span class="number">1</span>).rename(columns=&#123;<span class="number">0</span>: <span class="string">'month'</span>, <span class="number">1</span>: <span class="string">'day'</span>, <span class="number">2</span>: <span class="string">'year'</span>&#125;)</span><br><span class="line">    third.index = third.index.droplevel(<span class="number">1</span>)</span><br><span class="line">    third = third.apply(word_to_digits, axis=<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    forth = forth_interval.str.extractall(forth_pattern)</span><br><span class="line">    forth = forth.drop(<span class="number">1</span>, level=<span class="number">1</span>).rename(columns=&#123;<span class="number">0</span>: <span class="string">'month'</span>, <span class="number">1</span>: <span class="string">'year'</span>&#125;)</span><br><span class="line">    forth.index = forth.index.droplevel(<span class="number">1</span>)</span><br><span class="line">    forth[<span class="string">'day'</span>] = <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    fifth = df.iloc[<span class="number">455</span>:].str.extractall(fifth_pattern)</span><br><span class="line">    fifth = fifth.drop(<span class="number">1</span>, level=<span class="number">1</span>).rename(columns=&#123;<span class="number">0</span>: <span class="string">'year'</span>&#125;)</span><br><span class="line">    fifth.index = fifth.index.droplevel(<span class="number">1</span>)</span><br><span class="line">    fifth[<span class="string">'day'</span>] = <span class="number">1</span></span><br><span class="line">    fifth[<span class="string">'month'</span>] = <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    treated_df = pd.concat([first, second.loc[<span class="number">125</span>: <span class="number">194</span>], third, second.loc[<span class="number">228</span>: <span class="number">343</span>], forth, fifth])</span><br><span class="line">    treated_df = add_19(treated_df)</span><br><span class="line">    treated_df.fillna(value=<span class="number">1</span>, inplace=<span class="keyword">True</span>)</span><br><span class="line">    treated_df = treated_df.apply(str_to_int, axis=<span class="number">1</span>)</span><br><span class="line">    treated_df.sort_values(by=[<span class="string">'year'</span>, <span class="string">'month'</span>, <span class="string">'day'</span>], inplace=<span class="keyword">True</span>)</span><br><span class="line">    treated_df.reset_index(inplace=<span class="keyword">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> treated_df[<span class="string">'index'</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>1个不常用的 pandas 用法：</strong></p>
+<p>上面利用 droplevel 删除多层索引的第二层，第二层的出现根据题目数据具体提取的结果来看还是有一行提取出了两个日期数据，那首先要找到是哪一行出了问题，确定这两个日期是否有一个是无效的。举个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">df_test = pd.DataFrame(np.arange(<span class="number">12</span>).reshape(<span class="number">4</span>, <span class="number">3</span>), index=[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]], columns=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>])</span><br></pre></td></tr></table></figure>
+<p>得到：<br><img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181106184819.jpg"><br>所以要定位到上面这个 DataFrame 里面二级索引等于 1 的数据，中间尝试过很多次 iloc 和 loc 来定位，但是多层索引还是没搞明白怎么用，google 百度也没能弄明白，最后在 stackoverflow 上找到利用 index.get_level_values 来定位，效果如下：<br><img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181106190741.jpg"><br>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_test.index.names = [<span class="string">'m'</span>, <span class="string">'n'</span>] <span class="comment"># 给多级索引添加名字</span></span><br><span class="line">df_test[df_test.index.get_level_values(<span class="string">'n'</span>) == <span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
+<p>后来经过尝试，不加名字，直接传入 1 也是可以的。</p>
+<p>事实上，上面这个方法依然没有达到我想要的效果，只是恰好可以满足这个题目，如果要定位到 m=1，n=1 这一行怎么办，经过漫长的查找依然无果，所以就先放着吧。。。。。</p>
+<p>通过以上方式定位发现 72 行果然提取出了一个无效数据，于是要删除掉，很自然的想到 drop 方法，于是找来文档，美滋滋，正好有关于多级索引删除数据的例子：</p>
+<p><img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181106191714.jpg"></p>
+<p>看到上面例子里索引都是字符串，心中不免出现一丝担忧，我的可都是 int 型的，果不其然报错了。。。如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df_test.drop(index=<span class="number">1</span>, level=<span class="number">1</span>)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">TypeError                                 Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-26</span>-b161031ed499&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 df_test.drop(index=1, level=1)</span><br><span class="line"></span><br><span class="line">TypeError: drop() got an unexpected keyword argument <span class="string">'index'</span></span><br></pre></td></tr></table></figure>
+<p>不过这个错误信息有点诡异啊，居然是没有这个参数，难以置信，好吧，用官方例子试试：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df.drop(index=<span class="string">'length'</span>, level=<span class="number">1</span>)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">TypeError                                 Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-25</span>-ce3d559c5e21&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 df.drop(index='length', level=1)</span><br><span class="line"></span><br><span class="line">TypeError: drop() got an unexpected keyword argument <span class="string">'index'</span></span><br></pre></td></tr></table></figure>
+<p>emmm…..文档骗人啊！！！好吧，估计是版本的问题。。。。</p>
+<p>心累，放弃这个方法了</p>
+<p>重新开始各种 google 百度，不知道过了多长时间，对 drop 又有了新发现，drop(‘xxx’, level=1) ，然后赶紧试了试，结果奏效了，于是成功删除二级索引等于 1 的那条数据，这个也算是恰巧是这个问题了，如果其他行二级索引等于 1 的数据是有效的那这个方法就没法用了。</p>
+<p>再次尝试官方文档：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.drop(<span class="string">'length'</span>, level=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181106193447.jpg"></p>
+<p>呵呵，没毛病，算了，至于 index 参数怎么用以后遇到再说吧 :sleeping:</p>
+<p>pandas 真的是太强大，只能怪自己太渣 :joy:</p>
+
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/26/test2/" class="archive-article-date">
-  	<time datetime="2018-08-26T12:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃🍗<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181013123834.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/test2/">CS212-Lesson4</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">coursera</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cs212</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_science_4</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://Brycexxx.github.io/2018/11/06/c4-assignment1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/26/test1/" class="archive-article-date">
-  	<time datetime="2018-08-26T12:31:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/19/c3-assignment3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Assignment 3 - Evaluation</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/test1/">CS212-Lesson3</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cs212</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/26/test/" class="archive-article-date">
-  	<time datetime="2018-08-26T07:50:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-        </div>
-    	 
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+   new Valine({
+            av: AV,
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "gzE0z8RUfCAd6dmjY2H00HIe-gzGzoHsz",
+            app_key: "t55oLrwc8aTKChJLP1ijYzyy",
+            placeholder: "由于leancloud体验实例有每天 6 小时的强制休眠时间，所以大家的评论未必能及时知晓，望谅解。 若事情紧急，还请邮件联系，谢谢",
+            avatar: "monsterid",
+            avatar_cdn: "https://sdn.geekzu.org/avatar/",
+            pageSize: 10
+    });
+</script>
+    </section>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/test/">FP_growth算法说明</a>
-    </h1>
+  
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
+
+
 
 
           </div>
@@ -392,9 +549,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
