@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Brycexxx.github.io">
-  <title>Tag: cs212 | Bryce&#39;s Blog</title>
+  <title>c4-assignment2 | Bryce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个懂点采矿的经常码代码的土木工程研究僧">
-<meta name="keywords" content="土木, 采矿, python, flask, tensorflow, keras">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bryce&#39;s Blog">
-<meta property="og:url" content="https://Brycexxx.github.io/tags/cs212/index.html">
+  <meta name="description" content="Introduction to NLTKIn part 1 of this assignment you will use nltk to explore the Herman Melville novel Moby Dick. Then in part 2 you will create a spelling recommender function that uses nltk to find">
+<meta name="keywords" content="coursera,data_science_4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c4-assignment2">
+<meta property="og:url" content="https://Brycexxx.github.io/2018/11/08/c4-assignment2/index.html">
 <meta property="og:site_name" content="Bryce&#39;s Blog">
-<meta property="og:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta property="og:description" content="Introduction to NLTKIn part 1 of this assignment you will use nltk to explore the Herman Melville novel Moby Dick. Then in part 2 you will create a spelling recommender function that uses nltk to find">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-08T07:45:37.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bryce&#39;s Blog">
-<meta name="twitter:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta name="twitter:title" content="c4-assignment2">
+<meta name="twitter:description" content="Introduction to NLTKIn part 1 of this assignment you will use nltk to explore the Herman Melville novel Moby Dick. Then in part 2 you will create a spelling recommender function that uses nltk to find">
   
     <link rel="alternative" href="/atom.xml" title="Bryce&#39;s Blog" type="application/atom+xml">
   
@@ -199,114 +200,344 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-c4-assignment2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/26/test2/" class="archive-article-date">
-  	<time datetime="2018-08-26T12:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/test2/">CS212-Lesson4</a>
+    <h1 class="article-title" itemprop="name">
+      c4-assignment2
     </h1>
   
 
-        <div class="article-info info-on-right">
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
           
+        
+        <a href="/2018/11/08/c4-assignment2/" class="archive-article-date">
+  	<time datetime="2018-11-08T07:42:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Introduction to NLTK<br>In part 1 of this assignment you will use nltk to explore the Herman Melville novel Moby Dick. Then in part 2 you will create a spelling recommender function that uses nltk to find words similar to the misspelling. </p>
+<a id="more"></a>
+<h2 id="Part-1-Analyzing-Moby-Dick"><a href="#Part-1-Analyzing-Moby-Dick" class="headerlink" title="Part 1 - Analyzing Moby Dick"></a>Part 1 - Analyzing Moby Dick</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># If you would like to work with the raw text you can use 'moby_raw'</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'moby.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    moby_raw = f.read()</span><br><span class="line">    </span><br><span class="line"><span class="comment"># If you would like to work with the novel in nltk.Text format you can use 'text1'</span></span><br><span class="line">moby_tokens = nltk.word_tokenize(moby_raw)</span><br><span class="line">text1 = nltk.Text(moby_tokens)</span><br></pre></td></tr></table></figure>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h3><p>How many tokens (words and punctuation symbols) are in text1?</p>
+<p><em>This function should return an integer.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example_one</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> len(nltk.word_tokenize(moby_raw)) <span class="comment"># or alternatively len(text1)</span></span><br><span class="line"></span><br><span class="line">example_one()</span><br></pre></td></tr></table></figure>
+<pre><code>254989
+</code></pre><h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h3><p>How many unique tokens (unique words and punctuation) does text1 have?</p>
+<p><em>This function should return an integer.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example_two</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> len(set(nltk.word_tokenize(moby_raw))) <span class="comment"># or alternatively len(set(text1))</span></span><br><span class="line"></span><br><span class="line">example_two()</span><br></pre></td></tr></table></figure>
+<pre><code>20755
+</code></pre><h3 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3"></a>Example 3</h3><p>After lemmatizing the verbs, how many unique tokens does text1 have?</p>
+<p><em>This function should return an integer.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.stem <span class="keyword">import</span> WordNetLemmatizer</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example_three</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    lemmatizer = WordNetLemmatizer()</span><br><span class="line">    lemmatized = [lemmatizer.lemmatize(w,<span class="string">'v'</span>) <span class="keyword">for</span> w <span class="keyword">in</span> text1]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> len(set(lemmatized))</span><br><span class="line"></span><br><span class="line">example_three()</span><br></pre></td></tr></table></figure>
+<pre><code>16900
+</code></pre><h3 id="Question-1"><a href="#Question-1" class="headerlink" title="Question 1"></a>Question 1</h3><p>What is the lexical diversity of the given text input? (i.e. ratio of unique tokens to the total number of tokens)</p>
+<p><em>This function should return a float.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_one</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> example_two() / example_one()</span><br><span class="line"></span><br><span class="line">answer_one()</span><br></pre></td></tr></table></figure>
+<pre><code>0.08139566804842562
+</code></pre><h3 id="Question-2"><a href="#Question-2" class="headerlink" title="Question 2"></a>Question 2</h3><p>What percentage of tokens is ‘whale’or ‘Whale’?</p>
+<p><em>This function should return a float.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.book <span class="keyword">import</span> FreqDist</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_two</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#     moby_tokens = nltk.word_tokenize(moby_raw.lower())</span></span><br><span class="line"><span class="comment">#     temp = nltk.Text(moby_tokens)</span></span><br><span class="line">    dist = FreqDist(moby_tokens)</span><br><span class="line">    <span class="keyword">return</span> (dist[<span class="string">'whale'</span>] + dist[<span class="string">'Whale'</span>]) / len(moby_tokens) * <span class="number">100</span></span><br><span class="line"></span><br><span class="line">answer_two()</span><br></pre></td></tr></table></figure>
+<pre><code>0.4125668166077752
+</code></pre><h3 id="Question-3"><a href="#Question-3" class="headerlink" title="Question 3"></a>Question 3</h3><p>What are the 20 most frequently occurring (unique) tokens in the text? What is their frequency?</p>
+<p><em>This function should return a list of 20 tuples where each tuple is of the form <code>(token, frequency)</code>. The list should be sorted in descending order of frequency.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_three</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    dist = FreqDist(text1)</span><br><span class="line">    sort_dist = sorted(dist.items(), key=<span class="keyword">lambda</span> d: d[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">return</span> sort_dist[:<span class="number">20</span>]</span><br><span class="line"></span><br><span class="line">answer_three()</span><br></pre></td></tr></table></figure>
+<pre><code>[(&apos;,&apos;, 19204),
+ (&apos;the&apos;, 13715),
+ (&apos;.&apos;, 7308),
+ (&apos;of&apos;, 6513),
+ (&apos;and&apos;, 6010),
+ (&apos;a&apos;, 4545),
+ (&apos;to&apos;, 4515),
+ (&apos;;&apos;, 4173),
+ (&apos;in&apos;, 3908),
+ (&apos;that&apos;, 2978),
+ (&apos;his&apos;, 2459),
+ (&apos;it&apos;, 2196),
+ (&apos;I&apos;, 2097),
+ (&apos;!&apos;, 1767),
+ (&apos;is&apos;, 1722),
+ (&apos;--&apos;, 1713),
+ (&apos;with&apos;, 1659),
+ (&apos;he&apos;, 1658),
+ (&apos;was&apos;, 1639),
+ (&apos;as&apos;, 1620)]
+</code></pre><h3 id="Question-4"><a href="#Question-4" class="headerlink" title="Question 4"></a>Question 4</h3><p>What tokens have a length of greater than 5 and frequency of more than 150?</p>
+<p><em>This function should return a sorted list of the tokens that match the above constraints. To sort your list, use <code>sorted()</code></em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_four</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    dist = FreqDist(text1)</span><br><span class="line">    result = [w <span class="keyword">for</span> w, d <span class="keyword">in</span> dist.items() <span class="keyword">if</span> len(w) &gt; <span class="number">5</span> <span class="keyword">and</span> d &gt; <span class="number">150</span>]</span><br><span class="line">    <span class="keyword">return</span> sorted(result)</span><br><span class="line"></span><br><span class="line">answer_four()</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;Captain&apos;,
+ &apos;Pequod&apos;,
+ &apos;Queequeg&apos;,
+ &apos;Starbuck&apos;,
+ &apos;almost&apos;,
+ &apos;before&apos;,
+ &apos;himself&apos;,
+ &apos;little&apos;,
+ &apos;seemed&apos;,
+ &apos;should&apos;,
+ &apos;though&apos;,
+ &apos;through&apos;,
+ &apos;whales&apos;,
+ &apos;without&apos;]
+</code></pre><h3 id="Question-5"><a href="#Question-5" class="headerlink" title="Question 5"></a>Question 5</h3><p>Find the longest word in text1 and that word’s length.</p>
+<p><em>This function should return a tuple <code>(longest_word, length)</code>.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_five</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    sort_by_length = sorted(text1, key=len, reverse=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">return</span> (sort_by_length[<span class="number">0</span>], len(sort_by_length[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">answer_five()</span><br></pre></td></tr></table></figure>
+<pre><code>(&quot;twelve-o&apos;clock-at-night&quot;, 23)
+</code></pre><h3 id="Question-6"><a href="#Question-6" class="headerlink" title="Question 6"></a>Question 6</h3><p>What unique words have a frequency of more than 2000? What is their frequency?</p>
+<p>“Hint:  you may want to use <code>isalpha()</code> to check if the token is a word and not punctuation.”</p>
+<p><em>This function should return a list of tuples of the form <code>(frequency, word)</code> sorted in descending order of frequency.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_six</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    dist = FreqDist(text1)</span><br><span class="line">    sort_dist = sorted(dist.items(), key=<span class="keyword">lambda</span> d: d[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">    result = [(d, w) <span class="keyword">for</span> w, d <span class="keyword">in</span> sort_dist <span class="keyword">if</span> w.isalpha() <span class="keyword">and</span> d &gt; <span class="number">2000</span>]</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">answer_six()</span><br></pre></td></tr></table></figure>
+<pre><code>[(13715, &apos;the&apos;),
+ (6513, &apos;of&apos;),
+ (6010, &apos;and&apos;),
+ (4545, &apos;a&apos;),
+ (4515, &apos;to&apos;),
+ (3908, &apos;in&apos;),
+ (2978, &apos;that&apos;),
+ (2459, &apos;his&apos;),
+ (2196, &apos;it&apos;),
+ (2097, &apos;I&apos;)]
+</code></pre><h3 id="Question-7"><a href="#Question-7" class="headerlink" title="Question 7"></a>Question 7</h3><p>What is the average number of tokens per sentence?</p>
+<p><em>This function should return a float.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_seven</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    sentences = nltk.sent_tokenize(moby_raw)</span><br><span class="line">    sentence_length = [len(nltk.word_tokenize(sentence)) <span class="keyword">for</span> sentence <span class="keyword">in</span> sentences]</span><br><span class="line">    <span class="keyword">return</span> sum(sentence_length) / len(sentence_length)</span><br><span class="line"></span><br><span class="line">answer_seven()</span><br></pre></td></tr></table></figure>
+<pre><code>25.881952902963864
+</code></pre><h3 id="Question-8"><a href="#Question-8" class="headerlink" title="Question 8"></a>Question 8</h3><p>What are the 5 most frequent parts of speech in this text? What is their frequency?</p>
+<p><em>This function should return a list of tuples of the form <code>(part_of_speech, frequency)</code> sorted in descending order of frequency.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_eight</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#     moby_words = [w for w in moby_tokens if w.isalpha()]</span></span><br><span class="line">    pos = [pos <span class="keyword">for</span> w, pos <span class="keyword">in</span> nltk.pos_tag(moby_tokens)]</span><br><span class="line">    dist = FreqDist(pos)</span><br><span class="line">    results = sorted(dist.items(), key=<span class="keyword">lambda</span> d: d[<span class="number">1</span>], reverse=<span class="keyword">True</span>)[:<span class="number">5</span>]</span><br><span class="line"><span class="comment">#     没办法，答案不接受int64，所以只好进行没必要的转换</span></span><br><span class="line">    df = pd.DataFrame(results)</span><br><span class="line">    df[<span class="number">1</span>] = df[<span class="number">1</span>].astype(<span class="string">'int32'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> list(zip(df[<span class="number">0</span>], df[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">answer_eight()</span><br></pre></td></tr></table></figure>
+<pre><code>[(&apos;NN&apos;, 32730), (&apos;IN&apos;, 28657), (&apos;DT&apos;, 25867), (&apos;,&apos;, 19204), (&apos;JJ&apos;, 17620)]
+</code></pre><h2 id="Part-2-Spelling-Recommender"><a href="#Part-2-Spelling-Recommender" class="headerlink" title="Part 2 - Spelling Recommender"></a>Part 2 - Spelling Recommender</h2><p>For this part of the assignment you will create three different spelling recommenders, that each take a list of misspelled words and recommends a correctly spelled word for every word in the list.</p>
+<p>For every misspelled word, the recommender should find find the word in <code>correct_spellings</code> that has the shortest distance*, and starts with the same letter as the misspelled word, and return that word as a recommendation.</p>
+<p>*Each of the three different recommenders will use a different distance measure (outlined below).</p>
+<p>Each of the recommenders should provide recommendations for the three default words provided: <code>[&#39;cormulent&#39;, &#39;incendenece&#39;, &#39;validrate&#39;]</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.corpus <span class="keyword">import</span> words</span><br><span class="line"><span class="keyword">from</span> nltk.metrics.distance <span class="keyword">import</span> jaccard_distance, edit_distance</span><br><span class="line"><span class="keyword">from</span> nltk.util <span class="keyword">import</span> ngrams</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">correct_spellings = words.words()</span><br><span class="line">spellings_series = pd.Series(correct_spellings)</span><br></pre></td></tr></table></figure>
+<h3 id="Question-9"><a href="#Question-9" class="headerlink" title="Question 9"></a>Question 9</h3><p>For this recommender, your function should provide recommendations for the three default words provided above using the following distance metric:</p>
+<p><strong><a href="https://en.wikipedia.org/wiki/Jaccard_index" target="_blank" rel="noopener">Jaccard distance</a> on the trigrams of the two words.</strong></p>
+<p><em>This function should return a list of length three:<br><code>[&#39;cormulent_reccomendation&#39;, &#39;incendenece_reccomendation&#39;, &#39;validrate_reccomendation&#39;]</code>.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_nine</span><span class="params">(entries=[<span class="string">'cormulent'</span>, <span class="string">'incendenece'</span>, <span class="string">'validrate'</span>])</span>:</span></span><br><span class="line">    </span><br><span class="line">    result = []</span><br><span class="line"><span class="comment">#     for entry in entries:</span></span><br><span class="line"><span class="comment">#         dis = 1</span></span><br><span class="line"><span class="comment">#         recommendation = None</span></span><br><span class="line"><span class="comment">#         for correct_spelling in correct_spellings:</span></span><br><span class="line"><span class="comment">#             if entry[0] == correct_spelling[0]:</span></span><br><span class="line"><span class="comment">#                 jd = jaccard_distance(set(ngrams(entry, 3)), set(ngrams(correct_spelling, 3)))</span></span><br><span class="line"><span class="comment"># #                 print(jd)</span></span><br><span class="line"><span class="comment">#                 if jd &lt; dis:</span></span><br><span class="line"><span class="comment">#                     dis = jd</span></span><br><span class="line"><span class="comment">#                     print('%s and %s distance: %d' % (entry, correct_spelling, dis))</span></span><br><span class="line"><span class="comment">#                     recommendation = correct_spelling</span></span><br><span class="line"><span class="comment">#         result.append(recommendation)</span></span><br><span class="line">    <span class="keyword">for</span> entry <span class="keyword">in</span> entries:</span><br><span class="line">        spellings = spellings_series[spellings_series.str.startswith(entry[<span class="number">0</span>])]</span><br><span class="line">        distances = [(jaccard_distance(set(ngrams(entry, <span class="number">3</span>)), set(ngrams(word, <span class="number">3</span>))), word) <span class="keyword">for</span> word <span class="keyword">in</span> spellings]</span><br><span class="line">        closest = min(distances)</span><br><span class="line">        result.append(closest[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">    </span><br><span class="line">answer_nine()</span><br></pre></td></tr></table></figure>
+<pre><code>/opt/conda/lib/python3.6/site-packages/ipykernel/__main__.py:18: DeprecationWarning: generator &apos;ngrams&apos; raised StopIteration
+
+[&apos;corpulent&apos;, &apos;indecence&apos;, &apos;validate&apos;]
+</code></pre><h3 id="Questin-10"><a href="#Questin-10" class="headerlink" title="Questin 10"></a>Questin 10</h3><p>For this recommender, your function should provide recommendations for the three default words provided above using the following distance metric:</p>
+<p><strong><a href="https://en.wikipedia.org/wiki/Jaccard_index" target="_blank" rel="noopener">Jaccard distance</a> on the 4-grams of the two words.</strong></p>
+<p><em>This function should return a list of length three:<br><code>[&#39;cormulent_reccomendation&#39;, &#39;incendenece_reccomendation&#39;, &#39;validrate_reccomendation&#39;]</code>.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_ten</span><span class="params">(entries=[<span class="string">'cormulent'</span>, <span class="string">'incendenece'</span>, <span class="string">'validrate'</span>])</span>:</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> entry <span class="keyword">in</span> entries:</span><br><span class="line">        spellings = spellings_series[spellings_series.str.startswith(entry[<span class="number">0</span>])]</span><br><span class="line">        distances = [(jaccard_distance(set(ngrams(entry, <span class="number">4</span>)), set(ngrams(word, <span class="number">4</span>))), word) <span class="keyword">for</span> word <span class="keyword">in</span> spellings]</span><br><span class="line">        closest = min(distances)</span><br><span class="line">        result.append(closest[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">answer_ten()</span><br></pre></td></tr></table></figure>
+<pre><code>/opt/conda/lib/python3.6/site-packages/ipykernel/__main__.py:5: DeprecationWarning: generator &apos;ngrams&apos; raised StopIteration
+
+[&apos;cormus&apos;, &apos;incendiary&apos;, &apos;valid&apos;]
+</code></pre><h3 id="Question-11"><a href="#Question-11" class="headerlink" title="Question 11"></a>Question 11</h3><p>For this recommender, your function should provide recommendations for the three default words provided above using the following distance metric:</p>
+<p><strong><a href="https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance" target="_blank" rel="noopener">Edit distance on the two words with transpositions.</a></strong></p>
+<p><em>This function should return a list of length three:<br><code>[&#39;cormulent_reccomendation&#39;, &#39;incendenece_reccomendation&#39;, &#39;validrate_reccomendation&#39;]</code>.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_eleven</span><span class="params">(entries=[<span class="string">'cormulent'</span>, <span class="string">'incendenece'</span>, <span class="string">'validrate'</span>])</span>:</span></span><br><span class="line">    </span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> entry <span class="keyword">in</span> entries:</span><br><span class="line">        spellings = spellings_series[spellings_series.str.startswith(entry[<span class="number">0</span>])]</span><br><span class="line">        distances = [(edit_distance(entry, word, transpositions=<span class="keyword">True</span>), word) <span class="keyword">for</span> word <span class="keyword">in</span> spellings]</span><br><span class="line">        closest = min(distances)</span><br><span class="line">        result.append(closest[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">    </span><br><span class="line">answer_eleven()</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;corpulent&apos;, &apos;intendence&apos;, &apos;validate&apos;]
+</code></pre>
+      
+      
+    
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃🍗<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181013123834.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">coursera</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cs212</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_science_4</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://Brycexxx.github.io/2018/11/08/c4-assignment2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/26/test1/" class="archive-article-date">
-  	<time datetime="2018-08-26T12:31:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/06/c4-assignment1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">c4-assignment1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/test1/">CS212-Lesson3</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cs212</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-1-Analyzing-Moby-Dick"><span class="toc-number">1.</span> <span class="toc-text">Part 1 - Analyzing Moby Dick</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-1"><span class="toc-number">1.1.</span> <span class="toc-text">Example 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-2"><span class="toc-number">1.2.</span> <span class="toc-text">Example 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-3"><span class="toc-number">1.3.</span> <span class="toc-text">Example 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-1"><span class="toc-number">1.4.</span> <span class="toc-text">Question 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-2"><span class="toc-number">1.5.</span> <span class="toc-text">Question 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-3"><span class="toc-number">1.6.</span> <span class="toc-text">Question 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-4"><span class="toc-number">1.7.</span> <span class="toc-text">Question 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-5"><span class="toc-number">1.8.</span> <span class="toc-text">Question 5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-6"><span class="toc-number">1.9.</span> <span class="toc-text">Question 6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-7"><span class="toc-number">1.10.</span> <span class="toc-text">Question 7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-8"><span class="toc-number">1.11.</span> <span class="toc-text">Question 8</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-2-Spelling-Recommender"><span class="toc-number">2.</span> <span class="toc-text">Part 2 - Spelling Recommender</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-9"><span class="toc-number">2.1.</span> <span class="toc-text">Question 9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Questin-10"><span class="toc-number">2.2.</span> <span class="toc-text">Questin 10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-11"><span class="toc-number">2.3.</span> <span class="toc-text">Question 11</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+   new Valine({
+            av: AV,
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "gzE0z8RUfCAd6dmjY2H00HIe-gzGzoHsz",
+            app_key: "t55oLrwc8aTKChJLP1ijYzyy",
+            placeholder: "由于leancloud体验实例有每天 6 小时的强制休眠时间，所以大家的评论未必能及时知晓，望谅解。 若事情紧急，还请邮件联系，谢谢",
+            avatar: "monsterid",
+            avatar_cdn: "https://sdn.geekzu.org/avatar/",
+            pageSize: 10
+    });
+</script>
+    </section>
   
   
-    </div></section>
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
 
 
           </div>
@@ -354,9 +585,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
