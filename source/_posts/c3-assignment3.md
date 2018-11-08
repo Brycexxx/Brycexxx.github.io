@@ -1,10 +1,12 @@
 ---
-title: Assignment 3 - Evaluation
+title: c3-assignment3
 date: 2018-10-19 20:20:32
 tags: [coursera, data_science_3]
 toc: true
 reward: true
 ---
+
+Evaluation
 
 In this assignment you will train several models and evaluate how effectively they predict instances of fraud using data based on [this dataset from Kaggle](https://www.kaggle.com/dalpozz/creditcardfraud).
 

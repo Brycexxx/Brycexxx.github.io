@@ -1,8 +1,10 @@
 ---
-title: Assignment 3 - Building a Custom Visualization
+title: c2-assignment3
 date: 2018-09-21 12:53:11
 tags: [coursera, data_science_2]
 ---
+Building a Custom Visualization
+
 In this assignment you must choose one of the options presented below and submit a visual as well as your source code for peer grading. The details of how you solve the assignment are up to you, although your assignment must use matplotlib so that your peers can evaluate your work. The options differ in challenge level, but there are no grades associated with the challenge level you chose. However, your peers will be asked to ensure you at least met a minimum quality for a given technique in order to pass. Implement the technique fully (or exceed it!) and you should be able to earn full grades for the assignment.
 
 <!--more-->

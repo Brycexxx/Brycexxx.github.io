@@ -1,10 +1,12 @@
 ---
-title: Assignment 1 - Introduction to Machine Learning
+title: c3-assignment1
 date: 2018-10-15 11:13:39
 tags: [coursera, data_science_3]
 toc: true
 reward: true
 ---
+
+Introduction to Machine Learning
 
 For this assignment, you will be using the Breast Cancer Wisconsin (Diagnostic) Database to create a classifier that can help diagnose patients. First, read through the description of the dataset (below).
 
