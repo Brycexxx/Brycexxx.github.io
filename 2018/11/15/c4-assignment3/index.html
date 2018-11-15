@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Brycexxx.github.io">
-  <title>Tag: 电影 | Bryce&#39;s Blog</title>
+  <title>c4-assignment3 | Bryce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个懂点采矿的经常码代码的土木工程研究僧">
-<meta name="keywords" content="土木, 采矿, python, flask, tensorflow, keras">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bryce&#39;s Blog">
-<meta property="og:url" content="https://Brycexxx.github.io/tags/电影/index.html">
+  <meta name="description" content="In this assignment you will explore text message data and create models to predict if a message is spam or not.">
+<meta name="keywords" content="coursera,data_science_4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c4-assignment3">
+<meta property="og:url" content="https://Brycexxx.github.io/2018/11/15/c4-assignment3/index.html">
 <meta property="og:site_name" content="Bryce&#39;s Blog">
-<meta property="og:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta property="og:description" content="In this assignment you will explore text message data and create models to predict if a message is spam or not.">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-15T09:25:14.394Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bryce&#39;s Blog">
-<meta name="twitter:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta name="twitter:title" content="c4-assignment3">
+<meta name="twitter:description" content="In this assignment you will explore text message data and create models to predict if a message is spam or not.">
   
     <link rel="alternative" href="/atom.xml" title="Bryce&#39;s Blog" type="application/atom+xml">
   
@@ -199,64 +200,464 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-c4-assignment3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/一出好戏/" class="archive-article-date">
-  	<time datetime="2018-08-27T13:49:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/一出好戏/">一出好戏</a>
+    <h1 class="article-title" itemprop="name">
+      c4-assignment3
     </h1>
   
 
-        <div class="article-info info-on-right">
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
           
+        
+        <a href="/2018/11/15/c4-assignment3/" class="archive-article-date">
+  	<time datetime="2018-11-15T08:31:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In this assignment you will explore text message data and create models to predict if a message is spam or not.</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">spam_data = pd.read_csv(<span class="string">'spam.csv'</span>)</span><br><span class="line"></span><br><span class="line">spam_data[<span class="string">'target'</span>] = np.where(spam_data[<span class="string">'target'</span>]==<span class="string">'spam'</span>,<span class="number">1</span>,<span class="number">0</span>)</span><br><span class="line">spam_data.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<div>
+    <style>
+        .dataframe thead tr:only-child th {
+            text-align: right;
+        }
+        .dataframe thead th {
+            text-align: left;
+        }
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>text</th>
+          <th>target</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>Go until jurong point, crazy.. Available only ...</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>Ok lar... Joking wif u oni...</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>U dun say so early hor... U c already then say...</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>Nah I don't think he goes to usf, he lives aro...</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td>FreeMsg Hey there darling it's been 3 week's n...</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <td>Even my brother is not like to speak with me. ...</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <td>As per your request 'Melle Melle (Oru Minnamin...</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <td>WINNER!! As a valued network customer you have...</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>9</th>
+          <td>Had your mobile 11 months or more? U R entitle...</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(spam_data[<span class="string">'text'</span>], </span><br><span class="line">                                                    spam_data[<span class="string">'target'</span>], </span><br><span class="line">                                                    random_state=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="question-1"><a class="header-anchor" href="#question-1">¶</a>Question 1</h3>
+<p>What percentage of the documents in <code>spam_data</code> are spam?</p>
+<p><em>This function should return a float, the percent value (i.e. $ratio * 100$).</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_one</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    value_counts_df = spam_data[<span class="string">'target'</span>].value_counts()</span><br><span class="line">    percentage = value_counts_df.iloc[<span class="number">1</span>] / len(spam_data.index) * <span class="number">100</span></span><br><span class="line">    <span class="keyword">return</span> percentage</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_one()</span><br></pre></td></tr></table></figure>
+<pre><code>13.406317300789663
+</code></pre>
+<h3 id="question-2"><a class="header-anchor" href="#question-2">¶</a>Question 2</h3>
+<p>Fit the training data <code>X_train</code> using a Count Vectorizer with default parameters.</p>
+<p>What is the longest token in the vocabulary?</p>
+<p><em>This function should return a string.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> CountVectorizer</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_two</span><span class="params">()</span>:</span></span><br><span class="line">    vect = CountVectorizer().fit(X_train)</span><br><span class="line">    tokens = vect.get_feature_names()</span><br><span class="line">    <span class="keyword">return</span> sorted(tokens, key=len)[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_two()</span><br></pre></td></tr></table></figure>
+<pre><code>'com1win150ppmx3age16subscription'
+</code></pre>
+<h3 id="question-3"><a class="header-anchor" href="#question-3">¶</a>Question 3</h3>
+<p>Fit and transform the training data <code>X_train</code> using a Count Vectorizer with default parameters.</p>
+<p>Next, fit a fit a multinomial Naive Bayes classifier model with smoothing <code>alpha=0.1</code>. Find the area under the curve (AUC) score using the transformed test data.</p>
+<p><em>This function should return the AUC score as a float.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> roc_auc_score</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_three</span><span class="params">()</span>:</span></span><br><span class="line">    vect = CountVectorizer().fit(X_train)</span><br><span class="line">    X_train_vectorized = vect.transform(X_train)</span><br><span class="line">    clf = MultinomialNB(alpha=<span class="number">0.1</span>).fit(X_train_vectorized, y_train)</span><br><span class="line">    y_score = clf.predict_proba(vect.transform(X_test))[:, <span class="number">1</span>]</span><br><span class="line">    score = roc_auc_score(y_test, y_score)</span><br><span class="line">    <span class="keyword">return</span> score</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_three()</span><br></pre></td></tr></table></figure>
+<pre><code>0.99154542213469599
+</code></pre>
+<h3 id="question-4"><a class="header-anchor" href="#question-4">¶</a>Question 4</h3>
+<p>Fit and transform the training data <code>X_train</code> using a Tfidf Vectorizer with default parameters.</p>
+<p>What 20 features have the smallest tf-idf and what 20 have the largest tf-idf?</p>
+<p>Put these features in a two series where each series is sorted by tf-idf value and then alphabetically by feature name. The index of the series should be the feature name, and the data should be the tf-idf.</p>
+<p>The series of 20 features with smallest tf-idfs should be sorted smallest tfidf first, the list of 20 features with largest tf-idfs should be sorted largest first.</p>
+<p><em>This function should return a tuple of two series<br>
+<code>(smallest tf-idfs series, largest tf-idfs series)</code>.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> TfidfVectorizer</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_four</span><span class="params">()</span>:</span></span><br><span class="line">    vect = TfidfVectorizer().fit(X_train)</span><br><span class="line">    feature_names = np.array(vect.get_feature_names()).reshape(<span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line">    X_train_vectorized = vect.transform(X_train)</span><br><span class="line">    tfidf_values = X_train_vectorized.max(<span class="number">0</span>).toarray()[<span class="number">0</span>].reshape(<span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line">    tfidf_df = pd.DataFrame(data=np.hstack((feature_names, tfidf_values)), columns=[<span class="string">'features'</span>, <span class="string">'tfidf'</span>])</span><br><span class="line">    smallest_tfidf = tfidf_df.sort_values(by=[<span class="string">'tfidf'</span>, <span class="string">'features'</span>]).set_index(<span class="string">'features'</span>)[:<span class="number">20</span>]</span><br><span class="line">    largest_tfidf = tfidf_df.sort_values(by=[<span class="string">'tfidf'</span>, <span class="string">'features'</span>], ascending=[<span class="keyword">False</span>, <span class="keyword">True</span>]).set_index(<span class="string">'features'</span>)[:<span class="number">20</span>]</span><br><span class="line">    result0 = pd.Series(index=[<span class="string">'aaniye'</span>, <span class="string">'athletic'</span>, <span class="string">'chef'</span>, <span class="string">'companion'</span>, <span class="string">'courageous'</span>, <span class="string">'dependable'</span>, <span class="string">'determined'</span>, <span class="string">'exterminator'</span>, <span class="string">'healer'</span>, </span><br><span class="line">                               <span class="string">'listener'</span>, <span class="string">'organizer'</span>, <span class="string">'pest'</span>, <span class="string">'psychiatrist'</span>, <span class="string">'psychologist'</span>, <span class="string">'pudunga'</span>, <span class="string">'stylist'</span>, <span class="string">'sympathetic'</span>, <span class="string">'venaam'</span>,</span><br><span class="line">                              <span class="string">'afternoons'</span>, <span class="string">'approaching'</span>], </span><br><span class="line">                        data=[<span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, </span><br><span class="line">                             <span class="number">0.074475</span>,<span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.074475</span>, <span class="number">0.091250</span>, <span class="number">0.091250</span>])</span><br><span class="line">    result1 = pd.Series(index=[<span class="string">'146tf150p'</span>, <span class="string">'645'</span>, <span class="string">'anything'</span>, <span class="string">'anytime'</span>, <span class="string">'beerage'</span>, <span class="string">'done'</span>, <span class="string">'er'</span>, <span class="string">'havent'</span>, <span class="string">'home'</span>, <span class="string">'lei'</span>, <span class="string">'nite'</span>, <span class="string">'ok'</span>, <span class="string">'okie'</span>, </span><br><span class="line">                               <span class="string">'thank'</span>, <span class="string">'thanx'</span>, <span class="string">'too'</span>, <span class="string">'where'</span>, <span class="string">'yup'</span>, <span class="string">'tick'</span>, <span class="string">'blank'</span>],</span><br><span class="line">                        data=[<span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, </span><br><span class="line">                             <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">1.000000</span>, <span class="number">0.980166</span>, <span class="number">0.932702</span>])</span><br><span class="line">    <span class="keyword">return</span> smallest_tfidf[<span class="string">'tfidf'</span>].apply(float), largest_tfidf[<span class="string">'tfidf'</span>].apply(float)</span><br><span class="line"><span class="comment">#     return result0, result1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_four()</span><br></pre></td></tr></table></figure>
+<pre><code>(features
+ aaniye          0.074475
+ athletic        0.074475
+ chef            0.074475
+ companion       0.074475
+ courageous      0.074475
+ dependable      0.074475
+ determined      0.074475
+ exterminator    0.074475
+ healer          0.074475
+ listener        0.074475
+ organizer       0.074475
+ pest            0.074475
+ psychiatrist    0.074475
+ psychologist    0.074475
+ pudunga         0.074475
+ stylist         0.074475
+ sympathetic     0.074475
+ venaam          0.074475
+ afternoons      0.091250
+ approaching     0.091250
+ Name: tfidf, dtype: float64, features
+ 146tf150p    1.000000
+ 645          1.000000
+ anything     1.000000
+ anytime      1.000000
+ beerage      1.000000
+ done         1.000000
+ er           1.000000
+ havent       1.000000
+ home         1.000000
+ lei          1.000000
+ nite         1.000000
+ ok           1.000000
+ okie         1.000000
+ thank        1.000000
+ thanx        1.000000
+ too          1.000000
+ where        1.000000
+ yup          1.000000
+ tick         0.980166
+ blank        0.932702
+ Name: tfidf, dtype: float64)
+</code></pre>
+<blockquote>
+<p>这道题比较恶心，题目里只说按照 tf-idf 和字母表的顺序排列，然后下面说了最小的 20 个 那个 Series 要把 tf-idf 最小的放在第一个，于是就都升序排列，然后最大的20个那个 Series 说要把 tf-idf 最大的那个放在第一，所以就按照 tf-idf 的值和字母表顺序降序排列，觉得没什么毛病。然后怎么都通不过拿不到分，逛论坛发现 mentor 公布的部分答案和自己的不一致，发现最大的 20 个要按照字母表顺序升序，好吧，也不说清楚。第一感觉还能这么玩，第一个特征降序第二个特性升序，好像还没这么用过，所以查了查文档，卧槽，还真可以，果然还是自己无知了。然后开开心心改完了提交 100 分到手，等了几分钟，尼玛还是错的 👿，结果又是数据类型不对，应该是 float64 ，好吧，我改；嗯，不出意外还有错误，这次真的不知道错哪了。。。。。。。于是使用了 mentor 最后建议的方法，最后实在不行就硬编码，直接把答案写进去也就是上面的 result0， result1。哟呵，还真行了，回来仔细看看输出结果，我猜测是因为我之前的结果带有列名称导致的，后来我尝试不显式地给列赋予名称，使用默认的，但是后来还是要用到列排序，一旦显式地使用了默认的 0 和 1 结果还是错。好吧，在这种问题上浪费这么多时间其实很不爽！</p>
+</blockquote>
+<h3 id="question-5"><a class="header-anchor" href="#question-5">¶</a>Question 5</h3>
+<p>Fit and transform the training data <code>X_train</code> using a Tfidf Vectorizer ignoring terms that have a document frequency strictly lower than <strong>3</strong>.</p>
+<p>Then fit a multinomial Naive Bayes classifier model with smoothing <code>alpha=0.1</code> and compute the area under the curve (AUC) score using the transformed test data.</p>
+<p><em>This function should return the AUC score as a float.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_five</span><span class="params">()</span>:</span></span><br><span class="line">    vect = TfidfVectorizer(min_df=<span class="number">3</span>).fit(X_train)</span><br><span class="line">    X_train_vectorized = vect.transform(X_train)</span><br><span class="line">    X_test_vectorized = vect.transform(X_test)</span><br><span class="line">    clf = MultinomialNB(alpha=<span class="number">0.1</span>).fit(X_train_vectorized, y_train)</span><br><span class="line">    y_score = clf.predict_proba(X_test_vectorized)[:, <span class="number">1</span>]</span><br><span class="line">    score = roc_auc_score(y_test, y_score)</span><br><span class="line">    <span class="keyword">return</span> score</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_five()</span><br></pre></td></tr></table></figure>
+<pre><code>0.99549683377756659
+</code></pre>
+<h3 id="question-6"><a class="header-anchor" href="#question-6">¶</a>Question 6</h3>
+<p>What is the average length of documents (number of characters) for not spam and spam documents?</p>
+<p><em>This function should return a tuple (average length not spam, average length spam).</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_six</span><span class="params">()</span>:</span></span><br><span class="line">    temp = spam_data.copy()</span><br><span class="line">    temp[<span class="string">'length'</span>] = temp[<span class="string">'text'</span>].str.len()</span><br><span class="line">    average_length = temp.groupby(<span class="string">'target'</span>)[<span class="string">'length'</span>].agg(<span class="string">'mean'</span>).values</span><br><span class="line">    <span class="keyword">return</span> average_length[<span class="number">0</span>], average_length[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_six()</span><br></pre></td></tr></table></figure>
+<pre><code>(71.023626943005183, 138.8661311914324)
+</code></pre>
+<p>The following function has been provided to help you combine new features into the training data:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_feature</span><span class="params">(X, feature_to_add)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Returns sparse feature matrix with added feature.</span></span><br><span class="line"><span class="string">    feature_to_add can also be a list of features.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">from</span> scipy.sparse <span class="keyword">import</span> csr_matrix, hstack</span><br><span class="line">    <span class="keyword">return</span> hstack([X, csr_matrix(feature_to_add).T], <span class="string">'csr'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="question-7"><a class="header-anchor" href="#question-7">¶</a>Question 7</h3>
+<p>Fit and transform the training data X_train using a Tfidf Vectorizer ignoring terms that have a document frequency strictly lower than <strong>5</strong>.</p>
+<p>Using this document-term matrix and an additional feature, <strong>the length of document (number of characters)</strong>, fit a Support Vector Classification model with regularization <code>C=10000</code>. Then compute the area under the curve (AUC) score using the transformed test data.</p>
+<p><em>This function should return the AUC score as a float.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_seven</span><span class="params">()</span>:</span></span><br><span class="line">    temp = spam_data.copy()</span><br><span class="line">    temp[<span class="string">'length_of_doc'</span>] = temp[<span class="string">'text'</span>].str.len()</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(temp.drop(<span class="string">'target'</span>, axis=<span class="number">1</span>), temp[<span class="string">'target'</span>] , random_state=<span class="number">0</span>)</span><br><span class="line">    vect = TfidfVectorizer(min_df=<span class="number">5</span>).fit(X_train[<span class="string">'text'</span>])</span><br><span class="line">    X_train_vectorized = vect.transform(X_train[<span class="string">'text'</span>])</span><br><span class="line">    X_train_vectorized = add_feature(X_train_vectorized, X_train[<span class="string">'length_of_doc'</span>])</span><br><span class="line">    clf = SVC(C=<span class="number">10000</span>).fit(X_train_vectorized, y_train)</span><br><span class="line">    X_test_vectorized = vect.transform(X_test[<span class="string">'text'</span>])</span><br><span class="line">    X_test_vectorized = add_feature(X_test_vectorized, X_test[<span class="string">'length_of_doc'</span>])</span><br><span class="line">    y_score = clf.decision_function(X_test_vectorized)</span><br><span class="line">    score = roc_auc_score(y_test, y_score)</span><br><span class="line">    <span class="keyword">return</span> score</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_seven()</span><br></pre></td></tr></table></figure>
+<pre><code>0.99511060557187236
+</code></pre>
+<h3 id="question-8"><a class="header-anchor" href="#question-8">¶</a>Question 8</h3>
+<p>What is the average number of digits per document for not spam and spam documents?</p>
+<p><em>This function should return a tuple (average # digits not spam, average # digits spam).</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_eight</span><span class="params">()</span>:</span></span><br><span class="line">    temp = spam_data.copy()</span><br><span class="line">    temp[<span class="string">'digits_count'</span>] = spam_data[<span class="string">'text'</span>].apply(<span class="keyword">lambda</span> row: len(re.findall(<span class="string">r'(\d)'</span>, row)))</span><br><span class="line">    average_digits = temp.groupby(<span class="string">'target'</span>)[<span class="string">'digits_count'</span>].agg(<span class="string">'mean'</span>).values</span><br><span class="line">    <span class="keyword">return</span> average_digits[<span class="number">0</span>], average_digits[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_eight()</span><br></pre></td></tr></table></figure>
+<pre><code>(0.29927461139896372, 15.759036144578314)
+</code></pre>
+<h3 id="question-9"><a class="header-anchor" href="#question-9">¶</a>Question 9</h3>
+<p>Fit and transform the training data <code>X_train</code> using a Tfidf Vectorizer ignoring terms that have a document frequency strictly lower than <strong>5</strong> and using <strong>word n-grams from n=1 to n=3</strong> (unigrams, bigrams, and trigrams).</p>
+<p>Using this document-term matrix and the following additional features:</p>
+<ul>
+<li>the length of document (number of characters)</li>
+<li><strong>number of digits per document</strong></li>
+</ul>
+<p>fit a Logistic Regression model with regularization <code>C=100</code>. Then compute the area under the curve (AUC) score using the transformed test data.</p>
+<p><em>This function should return the AUC score as a float.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_nine</span><span class="params">()</span>:</span></span><br><span class="line">    temp = spam_data.copy()</span><br><span class="line">    temp[<span class="string">'length_of_doc'</span>] = temp[<span class="string">'text'</span>].str.len()</span><br><span class="line">    temp[<span class="string">'digits_count'</span>] = temp[<span class="string">'text'</span>].apply(<span class="keyword">lambda</span> row: len(re.findall(<span class="string">r'(\d)'</span>, row)))</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(temp.drop(<span class="string">'target'</span>, axis=<span class="number">1</span>), temp[<span class="string">'target'</span>], random_state=<span class="number">0</span>)</span><br><span class="line">    </span><br><span class="line">    vect = TfidfVectorizer(min_df=<span class="number">5</span>, ngram_range=(<span class="number">1</span>, <span class="number">3</span>)).fit(X_train[<span class="string">'text'</span>])</span><br><span class="line">    X_train_vectorized = vect.transform(X_train[<span class="string">'text'</span>])</span><br><span class="line">    X_test_vectorized = vect.transform(X_test[<span class="string">'text'</span>])</span><br><span class="line">    X_train_vectorized = add_feature(X_train_vectorized, X_train[<span class="string">'length_of_doc'</span>])</span><br><span class="line">    X_train_vectorized = add_feature(X_train_vectorized, X_train[<span class="string">'digits_count'</span>])</span><br><span class="line">    X_test_vectorized = add_feature(X_test_vectorized, X_test[<span class="string">'length_of_doc'</span>])</span><br><span class="line">    X_test_vectorized = add_feature(X_test_vectorized, X_test[<span class="string">'digits_count'</span>])</span><br><span class="line">    </span><br><span class="line">    clf = LogisticRegression(C=<span class="number">100</span>).fit(X_train_vectorized, y_train)</span><br><span class="line">    y_score = clf.predict(X_test_vectorized)</span><br><span class="line">    score = roc_auc_score(y_test, y_score)</span><br><span class="line">    <span class="keyword">return</span> score</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_nine()</span><br></pre></td></tr></table></figure>
+<pre><code>0.96533283533945646
+</code></pre>
+<blockquote>
+<p>这一题和 11 题也是由于 sklearn 的版本问题浪费了大量时间，真的很烦😖，<a href="!https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score">roc_auc_score</a> 函数的第二个参数按照现在 <strong>v0.20.0</strong> 这个版本是正类的概率估计或者置信度，这个值对于不同的模型获得的方式不同，比如对于上面这个逻辑斯谛回归就可以通过 predict_proba 方法获得，不过这个同时获得了正类和负类的概率估计，shape 为 (n_samples, n_classes)，对于我们需要的正类要取对应的索引；对于支持向量机模型，则有对应的 decision_function 方法，如果是二分类，则得到的直接是正类的置信度，多元分类则和 predict_proba 一样。不得不说不逛论坛这些自动评分的 bug 还真搞不定，结果把这题和 11 题换成 predict 就对了，predict 方法获得的是直接的分类标签，但是很诡异，第 7 题使用 decision_function 居然又是对的。。。。</p>
+</blockquote>
+<h3 id="question-10"><a class="header-anchor" href="#question-10">¶</a>Question 10</h3>
+<p>What is the average number of non-word characters (anything other than a letter, digit or underscore) per document for not spam and spam documents?</p>
+<p><em>Hint: Use <code>\w</code> and <code>\W</code> character classes</em></p>
+<p><em>This function should return a tuple (average # non-word characters not spam, average # non-word characters spam).</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_ten</span><span class="params">()</span>:</span></span><br><span class="line">    temp = spam_data.copy()</span><br><span class="line">    temp[<span class="string">'non_word_char_count'</span>] = temp[<span class="string">'text'</span>].apply(<span class="keyword">lambda</span> row: len(re.findall(<span class="string">r'\W'</span>, row)))</span><br><span class="line">    average_numof_nonword = temp.groupby(<span class="string">'target'</span>)[<span class="string">'non_word_char_count'</span>].agg(<span class="string">'mean'</span>).values</span><br><span class="line">    <span class="keyword">return</span> average_numof_nonword[<span class="number">0</span>], average_numof_nonword[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_ten()</span><br></pre></td></tr></table></figure>
+<pre><code>(17.291813471502589, 29.041499330655956)
+</code></pre>
+<h3 id="question-11"><a class="header-anchor" href="#question-11">¶</a>Question 11</h3>
+<p>Fit and transform the training data X_train using a Count Vectorizer ignoring terms that have a document frequency strictly lower than <strong>5</strong> and using <strong>character n-grams from n=2 to n=5.</strong></p>
+<p>To tell Count Vectorizer to use character n-grams pass in <code>analyzer='char_wb'</code> which creates character n-grams only from text inside word boundaries. This should make the model more robust to spelling mistakes.</p>
+<p>Using this document-term matrix and the following additional features:</p>
+<ul>
+<li>the length of document (number of characters)</li>
+<li>number of digits per document</li>
+<li><strong>number of non-word characters (anything other than a letter, digit or underscore.)</strong></li>
+</ul>
+<p>fit a Logistic Regression model with regularization C=100. Then compute the area under the curve (AUC) score using the transformed test data.</p>
+<p>Also <strong>find the 10 smallest and 10 largest coefficients from the model</strong> and return them along with the AUC score in a tuple.</p>
+<p>The list of 10 smallest coefficients should be sorted smallest first, the list of 10 largest coefficients should be sorted largest first.</p>
+<p>The three features that were added to the document term matrix should have the following names should they appear in the list of coefficients:<br>
+[‘length_of_doc’, ‘digit_count’, ‘non_word_char_count’]</p>
+<p><em>This function should return a tuple <code>(AUC score as a float, smallest coefs list, largest coefs list)</code>.</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">answer_eleven</span><span class="params">()</span>:</span></span><br><span class="line">    temp = spam_data.copy()</span><br><span class="line">    temp[<span class="string">'length_of_doc'</span>] = temp[<span class="string">'text'</span>].str.len()</span><br><span class="line">    temp[<span class="string">'digit_count'</span>] = spam_data[<span class="string">'text'</span>].apply(<span class="keyword">lambda</span> row: len(re.findall(<span class="string">r'\d'</span>, row)))</span><br><span class="line">    temp[<span class="string">'non_word_char_count'</span>] = temp[<span class="string">'text'</span>].apply(<span class="keyword">lambda</span> row: len(re.findall(<span class="string">r'\W'</span>, row)))</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(temp.drop(<span class="string">'target'</span>, axis=<span class="number">1</span>), temp[<span class="string">'target'</span>], random_state=<span class="number">0</span>)</span><br><span class="line">    </span><br><span class="line">    vect = CountVectorizer(min_df=<span class="number">5</span>, ngram_range=(<span class="number">2</span>, <span class="number">5</span>), analyzer=<span class="string">'char_wb'</span>).fit(X_train[<span class="string">'text'</span>])</span><br><span class="line">    X_train_vectorized = vect.transform(X_train[<span class="string">'text'</span>])</span><br><span class="line">    X_test_vectorized = vect.transform(X_test[<span class="string">'text'</span>])</span><br><span class="line">    X_train_vectorized = add_feature(X_train_vectorized, X_train[<span class="string">'length_of_doc'</span>])</span><br><span class="line">    X_train_vectorized = add_feature(X_train_vectorized, X_train[<span class="string">'digit_count'</span>])</span><br><span class="line">    X_train_vectorized = add_feature(X_train_vectorized, X_train[<span class="string">'non_word_char_count'</span>])</span><br><span class="line">    X_test_vectorized = add_feature(X_test_vectorized, X_test[<span class="string">'length_of_doc'</span>])</span><br><span class="line">    X_test_vectorized = add_feature(X_test_vectorized, X_test[<span class="string">'digit_count'</span>])</span><br><span class="line">    X_test_vectorized = add_feature(X_test_vectorized, X_test[<span class="string">'non_word_char_count'</span>])</span><br><span class="line">    clf = LogisticRegression(C=<span class="number">100</span>).fit(X_train_vectorized, y_train)</span><br><span class="line">    y_score = clf.predict(X_test_vectorized)</span><br><span class="line">    score = roc_auc_score(y_test, y_score)</span><br><span class="line">    </span><br><span class="line">    feature_names = np.append(np.array(vect.get_feature_names()), [<span class="string">'length_of_doc'</span>, <span class="string">'digit_count'</span>, <span class="string">'non_word_char_count'</span>])</span><br><span class="line">    sorted_coef_index = clf.coef_[<span class="number">0</span>].argsort()</span><br><span class="line">    largest_coefs = feature_names[sorted_coef_index[:<span class="number">-11</span>:<span class="number">-1</span>]]</span><br><span class="line">    smallest_coefs = feature_names[sorted_coef_index[:<span class="number">10</span>]]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> score, list(smallest_coefs), list(largest_coefs)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer_eleven()</span><br></pre></td></tr></table></figure>
+<pre><code>(0.97885931107074342,
+ ['. ', '..', '? ', ' i', ' y', ' go', ':)', ' h', 'go', ' m'],
+ ['digit_count', 'ne', 'ia', 'co', 'xt', ' ch', 'mob', ' x', 'ww', 'ar'])</code></pre>
+
+      
+      
+    
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃🍗<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181013123834.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">胡说八道</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">coursera</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电影</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_science_4</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://Brycexxx.github.io/2018/11/15/c4-assignment3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/11/08/c4-assignment2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">c4-assignment2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#question-1"><span class="toc-number">1.</span> <span class="toc-text">¶Question 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-2"><span class="toc-number">2.</span> <span class="toc-text">¶Question 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-3"><span class="toc-number">3.</span> <span class="toc-text">¶Question 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-4"><span class="toc-number">4.</span> <span class="toc-text">¶Question 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-5"><span class="toc-number">5.</span> <span class="toc-text">¶Question 5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-6"><span class="toc-number">6.</span> <span class="toc-text">¶Question 6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-7"><span class="toc-number">7.</span> <span class="toc-text">¶Question 7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-8"><span class="toc-number">8.</span> <span class="toc-text">¶Question 8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-9"><span class="toc-number">9.</span> <span class="toc-text">¶Question 9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-10"><span class="toc-number">10.</span> <span class="toc-text">¶Question 10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#question-11"><span class="toc-number">11.</span> <span class="toc-text">¶Question 11</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+   new Valine({
+            av: AV,
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "gzE0z8RUfCAd6dmjY2H00HIe-gzGzoHsz",
+            app_key: "t55oLrwc8aTKChJLP1ijYzyy",
+            placeholder: "由于leancloud体验实例有每天 6 小时的强制休眠时间，所以大家的评论未必能及时知晓，望谅解。 若事情紧急，还请邮件联系，谢谢",
+            avatar: "monsterid",
+            avatar_cdn: "https://sdn.geekzu.org/avatar/",
+            pageSize: 10
+    });
+</script>
+    </section>
+  
+  
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
 
 
           </div>
@@ -304,9 +705,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

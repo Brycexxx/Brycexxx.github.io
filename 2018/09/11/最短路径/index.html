@@ -243,29 +243,40 @@
       
         <p>为了数模竞赛再挣扎一下，这几天学习了图论以及相关的最短路径算法，主要有广度优先搜索、Dijkstra 算法、Floyd 算法、Bellman - Ford 算法。</p>
 <a id="more"></a>
-<h2 id="1-图论"><a href="#1-图论" class="headerlink" title="1 - 图论"></a>1 - 图论</h2><p>先说几个概念，有向图，无向图，带权图</p>
-<h3 id="1-1-有向图"><a href="#1-1-有向图" class="headerlink" title="1.1 - 有向图"></a>1.1 - 有向图</h3><p>先看图：</p>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180909164831.jpg" alt="有向图" height="200"><br></center>
-
+<h2 id="1-图论"><a class="header-anchor" href="#1-图论">¶</a>1 - 图论</h2>
+<p>先说几个概念，有向图，无向图，带权图</p>
+<h3 id="1-1-有向图"><a class="header-anchor" href="#1-1-有向图">¶</a>1.1 - 有向图</h3>
+<p>先看图：</p>
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180909164831.jpg" alt="有向图" height="200">
+</center>
 <p>如上图，顶点与顶点之间的连线是有方向的，比如 A 与 B ，图中表示只能由 A 到 B，B 到 A 是走不通的。</p>
-<h3 id="1-2-无向图"><a href="#1-2-无向图" class="headerlink" title="1.2 - 无向图"></a>1.2 - 无向图</h3><p>还是先看图：</p>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911194112.jpg" alt="无向图" height="200"><br></center>
-
+<h3 id="1-2-无向图"><a class="header-anchor" href="#1-2-无向图">¶</a>1.2 - 无向图</h3>
+<p>还是先看图：</p>
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911194112.jpg" alt="无向图" height="200">
+</center>
 <p>如上图，顶点与顶点之间的连线是没有方向的，A 可以到 B，B 也可以到 A，其实A 与 B 之间可以有下面的转换：</p>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911194909.jpg"><br></center>
-
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911194909.jpg">
+</center>
 <p>也就是说无向图两个顶点实际上构成了环。</p>
-<h3 id="1-3-带权图"><a href="#1-3-带权图" class="headerlink" title="1.3 - 带权图"></a>1.3 - 带权图</h3><p>嗯，看图吧</p>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911161539.jpg" alt="有向带权图" height="200"><br></center>
-
+<h3 id="1-3-带权图"><a class="header-anchor" href="#1-3-带权图">¶</a>1.3 - 带权图</h3>
+<p>嗯，看图吧</p>
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911161539.jpg" alt="有向带权图" height="200">
+</center>
 <p>权是权重的意思，就是连线中的数字，当遇到具体问题时，这些权重也就具有了实际意义。比如：A、B 表示两个车站，那么这个权重可表示为 A 与 B 的距离或者表示 A 到 B 需要花费的时间。</p>
 <p>实际上这个是有向带权图，那么无向带权图同理，只是少了方向而已。</p>
 <p>针对具体问题有时候权重亦可为负，像下面这样：</p>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911173712.jpg" alt="负权边" height="200"><br></center>
-
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911173712.jpg" alt="负权边" height="200">
+</center>
 <p>针对带负权边的图，相应的最短路径算法也会不一样。</p>
-<h2 id="2-最短路径"><a href="#2-最短路径" class="headerlink" title="2 - 最短路径"></a>2 - 最短路径</h2><p>这里实现的最短路径算法都是针对有向图</p>
-<h3 id="2-1-广度优先搜索"><a href="#2-1-广度优先搜索" class="headerlink" title="2.1 - 广度优先搜索"></a>2.1 - 广度优先搜索</h3><blockquote>
+<h2 id="2-最短路径"><a class="header-anchor" href="#2-最短路径">¶</a>2 - 最短路径</h2>
+<p>这里实现的最短路径算法都是针对有向图</p>
+<h3 id="2-1-广度优先搜索"><a class="header-anchor" href="#2-1-广度优先搜索">¶</a>2.1 - 广度优先搜索</h3>
+<blockquote>
 <p>参考资源：《算法图解》</p>
 </blockquote>
 <p>广度优先搜索可以解决无向图的两类问题：</p>
@@ -279,12 +290,14 @@
 <p>注意：在遍历的过程中，需要记录下已经处理过的节点，否则在遇到环的时候将导致无限循环</p>
 </blockquote>
 <p>算例：</p>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911194112.jpg" alt="无向图" height="200"><br></center>
-
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911194112.jpg" alt="无向图" height="200">
+</center>
 <p>python 实现:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    广度优先搜索</span></span><br><span class="line"><span class="string">    求 A 到 E 的最短路径</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line">    <span class="comment"># 初始化图</span></span><br><span class="line">    graph = &#123;&#125;</span><br><span class="line">    graph[<span class="string">'A'</span>] = [<span class="string">'C'</span>, <span class="string">'B'</span>]</span><br><span class="line">    graph[<span class="string">'B'</span>] = [<span class="string">'D'</span>, <span class="string">'E'</span>]</span><br><span class="line">    graph[<span class="string">'C'</span>] = [<span class="string">'B'</span>, <span class="string">'D'</span>]</span><br><span class="line">    graph[<span class="string">'D'</span>] = [<span class="string">'E'</span>]</span><br><span class="line">    graph[<span class="string">'E'</span>] = []</span><br><span class="line"></span><br><span class="line">    search_queue = deque()</span><br><span class="line">    search_queue += graph[<span class="string">'A'</span>]</span><br><span class="line">    <span class="comment"># 用于记录处理过的顶点</span></span><br><span class="line">    searched = []</span><br><span class="line">    track = &#123;<span class="string">'B'</span>: <span class="string">'AB'</span>, <span class="string">'C'</span>: <span class="string">'AC'</span>, <span class="string">'D'</span>: <span class="string">'*'</span> * len(list(graph.keys())), <span class="string">'E'</span>: <span class="string">'*'</span> * len(list(graph.keys()))&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> search_queue:</span><br><span class="line">        point = search_queue.popleft()</span><br><span class="line">        <span class="keyword">if</span> point <span class="keyword">not</span> <span class="keyword">in</span> searched:</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> graph[point]:</span><br><span class="line">                temp_track = track[point] + p</span><br><span class="line">                <span class="keyword">if</span> len(track[p]) &gt; len(temp_track):</span><br><span class="line">                    track[p] = temp_track</span><br><span class="line">            <span class="keyword">if</span> <span class="string">'E'</span> <span class="keyword">in</span> graph[point]:</span><br><span class="line">                <span class="keyword">return</span> track[<span class="string">'E'</span>]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                search_queue += graph[point]</span><br><span class="line">                searched.append(point)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'无最短路径'</span></span><br></pre></td></tr></table></figure>
 <p>结果：ABE</p>
-<h3 id="2-2-Dijkstra-算法"><a href="#2-2-Dijkstra-算法" class="headerlink" title="2.2 - Dijkstra 算法"></a>2.2 - Dijkstra 算法</h3><blockquote>
+<h3 id="2-2-dijkstra-算法"><a class="header-anchor" href="#2-2-dijkstra-算法">¶</a>2.2 - Dijkstra 算法</h3>
+<blockquote>
 <p>参考资源：</p>
 <ol>
 <li>《算法图解》</li>
@@ -294,22 +307,30 @@
 <p>dijkstra 算法主要解决的是在无负权边的有向无环图中从选定起点到图中任意节点的最短路径问题</p>
 <p><strong>该算法主要由四个步骤：</strong></p>
 <ul>
-<li><p>找出开销最小的节点</p>
+<li>
+<p>找出开销最小的节点</p>
 </li>
-<li><p>遍历该节点的邻居，检查它的邻居如果经过这个节点是否会有更少的开销，如果是就更新邻居的开销，并记录下该节点，以防止再次被遍历</p>
+<li>
+<p>遍历该节点的邻居，检查它的邻居如果经过这个节点是否会有更少的开销，如果是就更新邻居的开销，并记录下该节点，以防止再次被遍历</p>
 </li>
-<li>重复上述过程，遍历所有节点</li>
-<li>计算最终路径</li>
+<li>
+<p>重复上述过程，遍历所有节点</p>
+</li>
+<li>
+<p>计算最终路径</p>
+</li>
 </ul>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911161539.jpg" alt="有向带权图" height="200"><br></center>
-
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911161539.jpg" alt="有向带权图" height="200">
+</center>
 <p>为什么每次要找开销最小的节点呢，举个例子：</p>
 <p>如上图，如果首先遍历的是 B 点，那么 D 和 E 的开销将更新为 7 和 11，然后遍历 C，此时 B 的开销被再次更新了，也就是说之前 D 经由 B 的开销更新得到的并不是最短路径，而之后也并不会被更新为 6，D 经过 C 的更新仍为 7，D 可以经过的 B、C 两点都已经被处理，那么 D 也就没有再次被更新的机会，以至得到了错误的结果。</p>
 <p>python 实现：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    图解算法, 单源最短路径, A -&gt; E</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 初始化图</span></span><br><span class="line">    graph = &#123;&#125;</span><br><span class="line">    graph[<span class="string">'A'</span>] = &#123;<span class="string">'B'</span>: <span class="number">6</span>, <span class="string">'C'</span>: <span class="number">3</span>&#125;</span><br><span class="line">    graph[<span class="string">'B'</span>] = &#123;<span class="string">'D'</span>: <span class="number">1</span>, <span class="string">'E'</span>: <span class="number">5</span>&#125;</span><br><span class="line">    graph[<span class="string">'C'</span>] = &#123;<span class="string">'B'</span>: <span class="number">2</span>, <span class="string">'D'</span>: <span class="number">4</span>&#125;</span><br><span class="line">    graph[<span class="string">'D'</span>] = &#123;<span class="string">'E'</span>: <span class="number">3</span>&#125;</span><br><span class="line">    graph[<span class="string">'E'</span>] = &#123;&#125;</span><br><span class="line">    <span class="comment"># 初始化开销</span></span><br><span class="line">    costs = &#123;<span class="string">'B'</span>: <span class="number">6</span>, <span class="string">'C'</span>: <span class="number">3</span>, <span class="string">'D'</span>: float(<span class="string">'inf'</span>), <span class="string">'E'</span>: float(<span class="string">'inf'</span>)&#125;</span><br><span class="line">    <span class="comment"># 初始化父节点</span></span><br><span class="line">    parents = &#123;<span class="string">'B'</span>: <span class="string">'A'</span>, <span class="string">'C'</span>: <span class="string">'A'</span>, <span class="string">'D'</span>: <span class="keyword">None</span>, <span class="string">'E'</span>: <span class="keyword">None</span>&#125;</span><br><span class="line">    <span class="comment"># 记录处理过的顶点</span></span><br><span class="line">    processed= []</span><br><span class="line"></span><br><span class="line">    node = find_lowest_cost_node(costs, processed)</span><br><span class="line">    <span class="keyword">while</span> node:</span><br><span class="line">        neighbors = graph[node]</span><br><span class="line">        <span class="keyword">for</span> neighbor, cost <span class="keyword">in</span> neighbors.items():</span><br><span class="line">            new_cost = costs[node] + cost</span><br><span class="line">            <span class="keyword">if</span> new_cost &lt; costs[neighbor]:</span><br><span class="line">                costs[neighbor] = new_cost</span><br><span class="line">                parents[neighbor] = node</span><br><span class="line">        processed.append(node)</span><br><span class="line">        node = find_lowest_cost_node(costs, processed)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取最短路径</span></span><br><span class="line">    n = <span class="string">'E'</span></span><br><span class="line">    min_route = <span class="string">' -&gt; E'</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        n = parents.get(n)</span><br><span class="line">        <span class="keyword">if</span> n == <span class="string">'A'</span>:</span><br><span class="line">            min_route = <span class="string">'A'</span> + min_route</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        min_route = <span class="string">' -&gt; %s'</span> % n + min_route</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> costs, min_route</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_lowest_cost_node</span><span class="params">(costs, processed)</span>:</span></span><br><span class="line">    lowest_cost = float(<span class="string">'inf'</span>)</span><br><span class="line">    lowest_cost_node = <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">for</span> node, cost <span class="keyword">in</span> costs.items():</span><br><span class="line">        <span class="keyword">if</span> cost &lt; lowest_cost <span class="keyword">and</span> node <span class="keyword">not</span> <span class="keyword">in</span> processed:</span><br><span class="line">            lowest_cost = cost</span><br><span class="line">            lowest_cost_node = node</span><br><span class="line">    <span class="keyword">return</span> lowest_cost_node</span><br></pre></td></tr></table></figure>
 <p>计算结果：({‘B’: 6, ‘C’: 2, ‘D’: 7, ‘E’: 10},  ‘A -&gt; C -&gt; B -&gt; D -&gt; E’)</p>
 <p>第一个结果表示起点 A 经过其他所有节点的最短路径结果，第二个结果表示 A 到 E 的最短路径</p>
-<h3 id="2-3-Floyd-算法"><a href="#2-3-Floyd-算法" class="headerlink" title="2.3 - Floyd 算法"></a>2.3 - Floyd 算法</h3><blockquote>
+<h3 id="2-3-floyd-算法"><a class="header-anchor" href="#2-3-floyd-算法">¶</a>2.3 - Floyd 算法</h3>
+<blockquote>
 <p>参考资源：</p>
 <p>博客1：<a href="http://x-wei.github.io/shortest-path-summary.html" target="_blank" rel="noopener">http://x-wei.github.io/shortest-path-summary.html</a></p>
 <p>博客2：<a href="https://blog.csdn.net/MyStringIsNotNull/article/details/71505129" target="_blank" rel="noopener">https://blog.csdn.net/MyStringIsNotNull/article/details/71505129</a></p>
@@ -319,11 +340,13 @@
 <p><strong>算法原理</strong>：</p>
 <p>私以为：依次使用每一个节点作为中间节点，来更新任意两个节点间的最短路径</p>
 <p>官方版：</p>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911215318.jpg"><br></center>
-
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911215318.jpg">
+</center>
 <p>算例：</p>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911215431.jpg" alt="有向带权图" height="200"><br></center>
-
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911215431.jpg" alt="有向带权图" height="200">
+</center>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">floyd</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    任意两点最短路径</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 给顶点编号</span></span><br><span class="line">    point2num = &#123;<span class="string">'S'</span>: <span class="number">0</span>, <span class="string">'A'</span>: <span class="number">1</span>, <span class="string">'B'</span>: <span class="number">2</span>, <span class="string">'E'</span>: <span class="number">3</span>&#125;</span><br><span class="line">    <span class="comment"># 权重</span></span><br><span class="line">    w = &#123;(<span class="number">0</span>, <span class="number">1</span>): <span class="number">6</span>, (<span class="number">0</span>, <span class="number">2</span>): <span class="number">2</span>, (<span class="number">1</span>, <span class="number">3</span>): <span class="number">1</span>, (<span class="number">2</span>, <span class="number">1</span>): <span class="number">3</span>, (<span class="number">2</span>, <span class="number">3</span>): <span class="number">5</span>&#125;</span><br><span class="line">    <span class="comment"># 初始化邻接矩阵</span></span><br><span class="line">    adjacent_matrix = [[float(<span class="string">'inf'</span>)] * <span class="number">4</span>, [float(<span class="string">'inf'</span>)] * <span class="number">4</span>, [float(<span class="string">'inf'</span>)] * <span class="number">4</span>， [float(<span class="string">'inf'</span>)] * <span class="number">4</span>]</span><br><span class="line">    adjacent_matrix[<span class="number">0</span>][<span class="number">0</span>] = adjacent_matrix[<span class="number">1</span>][<span class="number">1</span>] = adjacent_matrix[<span class="number">2</span>][<span class="number">2</span>] = adjacent_matrix[<span class="number">3</span>][<span class="number">3</span>] = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> e, v <span class="keyword">in</span> w.items():</span><br><span class="line">        i, j = e</span><br><span class="line">        adjacent_matrix[i][j] = v</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 可经过的顶点</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">        <span class="comment"># 起点</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            <span class="comment"># 终点</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                adjacent_matrix[i][j] = min(adjacent_matrix[i][j], adjacent_matrix[i]											[k] + adjacent_matrix[k][j])</span><br><span class="line">    <span class="keyword">return</span> adjacent_matrix</span><br></pre></td></tr></table></figure>
 <p>计算结果：</p>
 <table>
@@ -367,15 +390,17 @@
 </tr>
 </tbody>
 </table>
-<h3 id="2-4-Bellman-Ford-算法"><a href="#2-4-Bellman-Ford-算法" class="headerlink" title="2.4 - Bellman-Ford 算法"></a>2.4 - Bellman-Ford 算法</h3><blockquote>
+<h3 id="2-4-bellman-ford-算法"><a class="header-anchor" href="#2-4-bellman-ford-算法">¶</a>2.4 - Bellman-Ford 算法</h3>
+<blockquote>
 <p>参考资源：</p>
 <p><a href="https://zh.wikipedia.org/wiki/%E8%B4%9D%E5%B0%94%E6%9B%BC-%E7%A6%8F%E7%89%B9%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">维基百科</a></p>
 </blockquote>
 <p>Bellman-Ford 算法可正确处理带负权边的有向图单源最短路径问题，而 dijkstra 算法很多时候无法正确处理，下面将举例说明</p>
 <p><strong>算法原理：</strong></p>
 <p>对于有 n 个节点的图，图中任意两点间的最短路径线段数不会超过 n - 1，所以进行 n - 1 次循环，每次循环遍历每个节点，用该节点到其邻居的开销更新起点到其邻居的最短路径，这个动作叫做<strong>松弛</strong>；其实可以发现，循环 n - 1 次是最糟糕的情况，每次只更新一条边，所以可以在循环中判定，如果某次循环不存在松弛的情况，就可以提前结束循环</p>
-<center><br>    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911173712.jpg" alt="负权边" height="200"><br></center>
-
+<center>
+    <img src="https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20180911173712.jpg" alt="负权边" height="200">
+</center>
 <p><strong>官方解释：</strong></p>
 <p>贝尔曼-福特算法与迪科斯彻算法类似，都以松弛操作为基础，即估计的最短路径值渐渐地被更加准确的值替代，直至得到最优解。在两个算法中，计算时每个边之间的估计距离值都比真实值大，并且被新找到路径的最小长度替代。 然而，迪科斯彻算法以贪心法选取未被处理的具有最小权值的节点，然后对其的出边进行松弛操作；而贝尔曼-福特算法简单地对所有边进行松弛操作，共 n - 1次，其中 n 是图的点的数量。在重复地计算中，已计算得到正确的距离的边的数量不断增加，直到所有边都计算得到了正确的路径。这样的策略使得贝尔曼-福特算法比迪科斯彻算法适用于更多种类的输入。</p>
 <p>python 实现：</p>
@@ -538,7 +563,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-图论"><span class="toc-number">1.</span> <span class="toc-text">1 - 图论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-有向图"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 - 有向图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-无向图"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 - 无向图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-带权图"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 - 带权图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-最短路径"><span class="toc-number">2.</span> <span class="toc-text">2 - 最短路径</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-广度优先搜索"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 - 广度优先搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Dijkstra-算法"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 - Dijkstra 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Floyd-算法"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 - Floyd 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Bellman-Ford-算法"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 - Bellman-Ford 算法</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-图论"><span class="toc-number">1.</span> <span class="toc-text">¶1 - 图论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-有向图"><span class="toc-number">1.1.</span> <span class="toc-text">¶1.1 - 有向图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-无向图"><span class="toc-number">1.2.</span> <span class="toc-text">¶1.2 - 无向图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-带权图"><span class="toc-number">1.3.</span> <span class="toc-text">¶1.3 - 带权图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-最短路径"><span class="toc-number">2.</span> <span class="toc-text">¶2 - 最短路径</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-广度优先搜索"><span class="toc-number">2.1.</span> <span class="toc-text">¶2.1 - 广度优先搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-dijkstra-算法"><span class="toc-number">2.2.</span> <span class="toc-text">¶2.2 - Dijkstra 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-floyd-算法"><span class="toc-number">2.3.</span> <span class="toc-text">¶2.3 - Floyd 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-bellman-ford-算法"><span class="toc-number">2.4.</span> <span class="toc-text">¶2.4 - Bellman-Ford 算法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -712,6 +737,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data_science_4</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">data_science_2</a>
               </li>
              
@@ -720,7 +749,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data_science_4</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">胡说八道</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,14 +762,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cs212</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">胡说八道</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
