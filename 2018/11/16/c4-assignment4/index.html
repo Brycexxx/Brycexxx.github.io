@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://Brycexxx.github.io">
   <title>c4-assignment4 | Bryce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="¶Document Similarity &amp;amp; Topic Modelling ¶Part 1 - Document Similarity For the first part of this assignment, you will complete the functions doc_to_synsets and similarity_score which will be used b">
+  <meta name="description" content="Document Similarity &amp;amp; Topic Modelling ¶Part 1 - Document Similarity For the first part of this assignment, you will complete the functions doc_to_synsets and similarity_score which will be used by">
 <meta name="keywords" content="coursera,data_science_4">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c4-assignment4">
 <meta property="og:url" content="https://Brycexxx.github.io/2018/11/16/c4-assignment4/index.html">
 <meta property="og:site_name" content="Bryce&#39;s Blog">
-<meta property="og:description" content="¶Document Similarity &amp;amp; Topic Modelling ¶Part 1 - Document Similarity For the first part of this assignment, you will complete the functions doc_to_synsets and similarity_score which will be used b">
+<meta property="og:description" content="Document Similarity &amp;amp; Topic Modelling ¶Part 1 - Document Similarity For the first part of this assignment, you will complete the functions doc_to_synsets and similarity_score which will be used by">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-16T02:49:36.477Z">
+<meta property="og:updated_time" content="2018-11-16T02:54:11.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c4-assignment4">
-<meta name="twitter:description" content="¶Document Similarity &amp;amp; Topic Modelling ¶Part 1 - Document Similarity For the first part of this assignment, you will complete the functions doc_to_synsets and similarity_score which will be used b">
+<meta name="twitter:description" content="Document Similarity &amp;amp; Topic Modelling ¶Part 1 - Document Similarity For the first part of this assignment, you will complete the functions doc_to_synsets and similarity_score which will be used by">
   
     <link rel="alternative" href="/atom.xml" title="Bryce&#39;s Blog" type="application/atom+xml">
   
@@ -230,7 +230,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="document-similarity-topic-modelling"><a class="header-anchor" href="#document-similarity-topic-modelling">¶</a>Document Similarity &amp; Topic Modelling</h2>
+        <p>Document Similarity &amp; Topic Modelling</p>
 <h2 id="part-1-document-similarity"><a class="header-anchor" href="#part-1-document-similarity">¶</a>Part 1 - Document Similarity</h2>
 <p>For the first part of this assignment, you will complete the functions <code>doc_to_synsets</code> and <code>similarity_score</code> which will be used by <code>document_path_similarity</code> to find the path similarity between two documents.</p>
 <a id="more"></a>
@@ -433,7 +433,7 @@ ___
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#document-similarity-topic-modelling"><span class="toc-number">1.</span> <span class="toc-text">¶Document Similarity &amp; Topic Modelling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#part-1-document-similarity"><span class="toc-number">2.</span> <span class="toc-text">¶Part 1 - Document Similarity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#test-document-path-similarity"><span class="toc-number">2.1.</span> <span class="toc-text">¶test_document_path_similarity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#most-similar-docs"><span class="toc-number">2.2.</span> <span class="toc-text">¶most_similar_docs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#label-accuracy"><span class="toc-number">2.3.</span> <span class="toc-text">¶label_accuracy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#part-2-topic-modelling"><span class="toc-number">3.</span> <span class="toc-text">¶Part 2 - Topic Modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lda-topics"><span class="toc-number">3.1.</span> <span class="toc-text">¶lda_topics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#topic-distribution"><span class="toc-number">3.2.</span> <span class="toc-text">¶topic_distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#topic-names"><span class="toc-number">3.3.</span> <span class="toc-text">¶topic_names</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">4.</span> <span class="toc-text">¶小结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#part-1-document-similarity"><span class="toc-number">1.</span> <span class="toc-text">¶Part 1 - Document Similarity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#test-document-path-similarity"><span class="toc-number">1.1.</span> <span class="toc-text">¶test_document_path_similarity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#most-similar-docs"><span class="toc-number">1.2.</span> <span class="toc-text">¶most_similar_docs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#label-accuracy"><span class="toc-number">1.3.</span> <span class="toc-text">¶label_accuracy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#part-2-topic-modelling"><span class="toc-number">2.</span> <span class="toc-text">¶Part 2 - Topic Modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lda-topics"><span class="toc-number">2.1.</span> <span class="toc-text">¶lda_topics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#topic-distribution"><span class="toc-number">2.2.</span> <span class="toc-text">¶topic_distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#topic-names"><span class="toc-number">2.3.</span> <span class="toc-text">¶topic_names</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">3.</span> <span class="toc-text">¶小结</span></a></li></ol>
                     </div>
                 </span>
             </div>
