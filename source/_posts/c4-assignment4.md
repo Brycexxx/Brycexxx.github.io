@@ -6,8 +6,7 @@ toc: true
 reward: true
 ---
 
-
-## Document Similarity & Topic Modelling
+Document Similarity & Topic Modelling
 
 ## Part 1 - Document Similarity
 
