@@ -72,7 +72,7 @@ favicon: https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181008
 avatar: https://raw.githubusercontent.com/Brycexxx/BlogComments/master/avatar1.jpg
 
 #是否开启分享
-share_jia: true
+share_jia: false
 
 # 百度推送
 baidu_push: true
