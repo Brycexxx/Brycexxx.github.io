@@ -49,7 +49,7 @@ reward_wording: '谢谢你请我吃🍗'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
 alipay: 
 # 微信二维码图片地址s
-weixin: https://raw.githubusercontent.com/Brycexxx/BlogComments/master/20181013123834.jpg
+weixin: https://raw.githubusercontent.com/Brycexxx/Images/master/20181116092639.jpg
 
 # 目录
 # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
