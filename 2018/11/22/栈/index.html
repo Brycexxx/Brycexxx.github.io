@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Brycexxx.github.io">
-  <title>FP_growth算法说明 | Bryce&#39;s Blog</title>
+  <title>栈 | Bryce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="FP-Growth算法是韩嘉炜等人在2000年提出的关联分析算法，它采取如下分治策略：将提供频繁项集的数据库压缩到一棵频繁模式树（FP-tree），但仍保留项集关联信息。 在算法中使用了一种称为频繁模式树（Frequent Pattern Tree）的数据结构。FP-tree是一种特殊的前缀树，由频繁项头表和项前缀树构成。FP-Growth算法基于以上的结构加快整个挖掘过程。">
-<meta name="keywords" content="test">
+  <meta name="description" content="基于 python 的 list 以及上次自己实现的单链表实现了固定容量的栈以及动态扩容栈">
+<meta name="keywords" content="python,数据结构,算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FP_growth算法说明">
-<meta property="og:url" content="https://Brycexxx.github.io/2018/08/26/test/index.html">
+<meta property="og:title" content="栈">
+<meta property="og:url" content="https://Brycexxx.github.io/2018/11/22/栈/index.html">
 <meta property="og:site_name" content="Bryce&#39;s Blog">
-<meta property="og:description" content="FP-Growth算法是韩嘉炜等人在2000年提出的关联分析算法，它采取如下分治策略：将提供频繁项集的数据库压缩到一棵频繁模式树（FP-tree），但仍保留项集关联信息。 在算法中使用了一种称为频繁模式树（Frequent Pattern Tree）的数据结构。FP-tree是一种特殊的前缀树，由频繁项头表和项前缀树构成。FP-Growth算法基于以上的结构加快整个挖掘过程。">
+<meta property="og:description" content="基于 python 的 list 以及上次自己实现的单链表实现了固定容量的栈以及动态扩容栈">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-26T08:15:10.000Z">
+<meta property="og:updated_time" content="2018-11-22T10:29:28.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FP_growth算法说明">
-<meta name="twitter:description" content="FP-Growth算法是韩嘉炜等人在2000年提出的关联分析算法，它采取如下分治策略：将提供频繁项集的数据库压缩到一棵频繁模式树（FP-tree），但仍保留项集关联信息。 在算法中使用了一种称为频繁模式树（Frequent Pattern Tree）的数据结构。FP-tree是一种特殊的前缀树，由频繁项头表和项前缀树构成。FP-Growth算法基于以上的结构加快整个挖掘过程。">
+<meta name="twitter:title" content="栈">
+<meta name="twitter:description" content="基于 python 的 list 以及上次自己实现的单链表实现了固定容量的栈以及动态扩容栈">
   
     <link rel="alternative" href="/atom.xml" title="Bryce&#39;s Blog" type="application/atom+xml">
   
@@ -200,14 +200,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-test" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-栈" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      FP_growth算法说明
+      栈
     </h1>
   
 
@@ -222,61 +222,32 @@
           </a>
           
         
-        <a href="/2018/08/26/test/" class="archive-article-date">
-  	<time datetime="2018-08-26T07:50:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
+        <a href="/2018/11/22/栈/" class="archive-article-date">
+  	<time datetime="2018-11-22T02:48:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>FP-Growth算法是韩嘉炜等人在2000年提出的关联分析算法，它采取如下分治策略：将提供频繁项集的数据库压缩到一棵频繁模式树（FP-tree），但仍保留项集关联信息。<br>
-在算法中使用了一种称为频繁模式树（Frequent Pattern Tree）的数据结构。FP-tree是一种特殊的前缀树，由频繁项头表和项前缀树构成。FP-Growth算法基于以上的结构加快整个挖掘过程。</p>
+        <p>基于 python 的 list 以及上次自己实现的<a href="!https://brycexxx.github.io/2018/11/19/%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a>实现了固定容量的栈以及动态扩容栈</p>
 <a id="more"></a>
-<h3 id="一-主要用途"><a class="header-anchor" href="#一-主要用途">¶</a>一. 主要用途</h3>
+<h3 id="1-基于-list-的栈"><a class="header-anchor" href="#1-基于-list-的栈">¶</a>1 基于 list 的栈</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于 list 实现固定容量的栈</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListStack</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        self.val = []</span><br><span class="line">        self.capacity = capacity</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 入栈</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(self.val) &gt;= self.capacity:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        self.val.append(data)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 出栈</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(self.val) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">return</span> self.val.pop()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.val)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        显示栈的固定容量</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;ListStack: %d&gt;"</span> % self.capacity</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DynamicListStack</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.val = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.val.append(data)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(self.val) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">return</span> self.val.pop()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.val)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        显示栈的当前大小</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;DynamicListStack: %d&gt;"</span> % len(self.val)</span><br></pre></td></tr></table></figure>
+<h3 id="2-基于单链表的栈"><a class="header-anchor" href="#2-基于单链表的栈">¶</a>2 基于单链表的栈</h3>
+<h4 id="2-1-调用已经实现的接口"><a class="header-anchor" href="#2-1-调用已经实现的接口">¶</a>2.1 调用已经实现的接口</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> single_linked_list <span class="keyword">import</span> SingleLinkedList</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkedStack</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.items = SingleLinkedList()</span><br><span class="line">        self.length = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        self.items.append(item)</span><br><span class="line">        self.length += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(self.items) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">return</span> self.items.pop(self.length - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.items)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        显示栈的容量</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;SingleLinkedStack: %d&gt;"</span> % self.capacity</span><br></pre></td></tr></table></figure>
 <ul>
-<li>挖掘数据集中的频繁项</li>
-<li>从频繁项中挖掘关联规则</li>
+<li>可以看出基于 list 和自己实现的单链表代码都比较简单且非常相似，这是因为单链表中已经完成了和 list 类似的加入和弹出的接口，所以直接调用接口实现的代码都是高度相似的</li>
 </ul>
-<h3 id="二-相关基础术语解释"><a class="header-anchor" href="#二-相关基础术语解释">¶</a>二. 相关基础术语解释</h3>
+<h4 id="2-2-未调用已实现的接口-从单链表的头部插入"><a class="header-anchor" href="#2-2-未调用已实现的接口-从单链表的头部插入">¶</a>2.2 未调用已实现的接口，从单链表的头部插入</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> single_linked_list <span class="keyword">import</span> Node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 未调用现成的接口，并从链表的头部插入      </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkedStack</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, head=None)</span>:</span></span><br><span class="line">        self.head = head</span><br><span class="line">        self.length = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        new_node = Node(item)</span><br><span class="line">        new_node._next = self.head</span><br><span class="line">        self.head = new_node</span><br><span class="line">        self.length += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.head:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        pop_value = self.head.val</span><br><span class="line">        self.head = self.head._next</span><br><span class="line">        <span class="keyword">return</span> pop_value</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.length</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        显示栈的大小</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;SingleLinkedStack2: %d&gt;"</span> % self.length</span><br></pre></td></tr></table></figure>
 <ul>
-<li>举个例子</li>
+<li>如果从单链表的尾部插入呢</li>
 </ul>
-<p>现在有数据集：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">transactions = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>],</span><br><span class="line">                [<span class="number">2</span>, <span class="number">4</span>],</span><br><span class="line">                [<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">                [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>],</span><br><span class="line">                [<span class="number">1</span>, <span class="number">3</span>],</span><br><span class="line">                [<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">                [<span class="number">1</span>, <span class="number">3</span>],</span><br><span class="line">                [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>],</span><br><span class="line">                [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]]</span><br></pre></td></tr></table></figure>
-<ol>
-<li>组合 [1, 2] 在数据集中共出现了4次，在这里我们将4称之为<strong>支持度(support)</strong></li>
-<li><strong>最小支持度(support threshold)</strong>，算法会将支持度大于最小支持度的组合找出来</li>
-<li><strong>频繁项(frequent pattern)</strong>，支持度大于最小支持度的组合即为频繁项</li>
-<li><strong>关联规则(association rules)</strong>，某个组合的出现将导致另一个组合可能出现的规则，<br>
-即两个频繁项之间的关联度</li>
-<li><strong>可信度(confidence)</strong>，如下面的算例，关联规则 (1)-&gt;(3) 即组合 (1) 出现导致 (3)<br>
-的概率为 <code>4/6</code>，这个概率值即为关联规则 (1)-&gt;(3) 的可信度</li>
-<li><strong>最小可信度(confidence threshold)</strong>，算法将找出大于最小可信度的关联规则</li>
-</ol>
-<blockquote>
-<p>假设将最小支持度设置为4，利用该算法可得到频繁项如下(冒号后面的数字表示该组合的支持度)：<br>
-(1): 6, (1, 2): 4, (2, 3): 4, (1, 3): 4, (2): 7</p>
-</blockquote>
-<blockquote>
-<p>假设将最小可信度设置为0.5，利用该算法可得到关联规则如下(冒号后面的数字表示该规则的自信度)：<br>
-(1)-&gt;(3): 0.6666666666666666, (2)-&gt;(3): 0.5714285714285714</p>
-</blockquote>
-<h3 id="三-应用思路"><a class="header-anchor" href="#三-应用思路">¶</a>三. 应用思路</h3>
-<ol>
-<li>由于监测数据大都是连续的，而具体的数值的组合基本都是独特的，支持度极小，以至于无法获得有效的信息；<br>
-因此我们将影响目标值的特征因素的数值进行离散化，获得特征因素的各个区间，区间之间的支持度差异会大大增加。<br>
-从而就可以获得数据中的有效信息。</li>
-<li>采用了 K 均值聚类算法对特征因素的数值进行离散化，并且采用了轮廓系数法来选取最佳的聚类数 K。</li>
-<li>在具体应用的过程中，由于寻找总体数据的频繁项没有什么指导性意义，所以这里根据目标值的类别分别寻找各自的频繁项，<br>
-又由于目标值的各个类别的样本数量可能差距较大，设置一个具体的最小支持度可能将会出现两种结果：<br>
-最小支持度过小，样本数量大的目标值对应的频繁项过多，造成无效信息；最小支持度过大，样本数量小的目标值对应的频繁项过少甚至没有，<br>
-无法获取有效信息。基于以上原因，这里提出了<strong>相对最小支持度</strong>(relative support threshold)的概念，<br>
-即样本数量的百分比，有效地解决了上面的问题。</li>
-<li>通过上面的处理，可以得到目标值的各个类别的频繁项集合，可以根据用户的需要展示前 n 个频繁项。</li>
-<li>同时，还获取了目标值各个类别频繁项之间的交集以及交集中频繁项在各个类别中的支持度，<br>
-用于展示交集频繁项的支持度在各个类别中变化的趋势。</li>
-</ol>
+<p>从上面的代码可以看出，单链表头部插入实现的栈，入栈和出栈操作的是时间复杂度都是 O(1)，下面看看尾部插入的时间复杂度：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> single_linked_list <span class="keyword">import</span> Node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 未调用现成的接口，并从链表的尾部插入  </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkedStack</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, head=None)</span>:</span></span><br><span class="line">        self.head = head</span><br><span class="line">        self.length = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        node = self.head</span><br><span class="line">        new_node = Node(item)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node:</span><br><span class="line">            self.head = new_node</span><br><span class="line">            self.length += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">while</span> node:</span><br><span class="line">            prev = node</span><br><span class="line">            node = node._next</span><br><span class="line">        prev._next = new_node</span><br><span class="line">        self.length += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.length == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node._next:</span><br><span class="line">            self.head = <span class="keyword">None</span></span><br><span class="line">            self.length -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> node.val</span><br><span class="line">        <span class="keyword">while</span> node:</span><br><span class="line">            prev = node</span><br><span class="line">            node = node._next</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> node._next:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        prev._next = <span class="keyword">None</span></span><br><span class="line">        self.length -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> node.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.length</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        显示栈的大小</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;SingleLinkedStack1: %d&gt;"</span> % self.length</span><br></pre></td></tr></table></figure>
+<p>显然尾部插入的实现时间复杂度是 O(n)</p>
 
       
       
@@ -291,7 +262,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -310,15 +289,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/26/test1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CS212-Lesson3
-        
-      </div>
-    </a>
   
+    <a href="/2018/11/19/单链表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">单链表</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -335,6 +310,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基于-list-的栈"><span class="toc-number">1.</span> <span class="toc-text">¶1 基于 list 的栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-基于单链表的栈"><span class="toc-number">2.</span> <span class="toc-text">¶2 基于单链表的栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-调用已经实现的接口"><span class="toc-number">2.1.</span> <span class="toc-text">¶2.1 调用已经实现的接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-未调用已实现的接口-从单链表的头部插入"><span class="toc-number">2.2.</span> <span class="toc-text">¶2.2 未调用已实现的接口，从单链表的头部插入</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
