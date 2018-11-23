@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Brycexxx.github.io">
-  <title>Archives: 2018/8 | Bryce&#39;s Blog</title>
+  <title>队列 | Bryce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个懂点采矿的经常码代码的土木工程研究僧">
-<meta name="keywords" content="土木, 采矿, python, flask, tensorflow, keras">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bryce&#39;s Blog">
-<meta property="og:url" content="https://Brycexxx.github.io/archives/2018/08/index.html">
+  <meta name="description" content="基于单链表以及 python 的 list 的 4 种不同实现方法的队列，包括普通队列以及循环队列">
+<meta name="keywords" content="python,数据结构,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="队列">
+<meta property="og:url" content="https://Brycexxx.github.io/2018/11/23/队列/index.html">
 <meta property="og:site_name" content="Bryce&#39;s Blog">
-<meta property="og:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta property="og:description" content="基于单链表以及 python 的 list 的 4 种不同实现方法的队列，包括普通队列以及循环队列">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-23T11:13:00.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bryce&#39;s Blog">
-<meta name="twitter:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta name="twitter:title" content="队列">
+<meta name="twitter:description" content="基于单链表以及 python 的 list 的 4 种不同实现方法的队列，包括普通队列以及循环队列">
   
     <link rel="alternative" href="/atom.xml" title="Bryce&#39;s Blog" type="application/atom+xml">
   
@@ -199,270 +200,168 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-队列" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      队列
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>&nbsp;次 &nbsp;&nbsp;
+          </span>
+          </a>
+          
+        
+        <a href="/2018/11/23/队列/" class="archive-article-date">
+  	<time datetime="2018-11-23T11:03:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基于单链表以及 python 的 list 的 4 种不同实现方法的队列，包括普通队列以及循环队列</p>
+<a id="more"></a>
+<h3 id="1-基于单链表实现的队列"><a class="header-anchor" href="#1-基于单链表实现的队列">¶</a>1 基于单链表实现的队列</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> single_linked_list <span class="keyword">import</span> Node</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkedQueue</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._head = <span class="keyword">None</span></span><br><span class="line">        self._tail = <span class="keyword">None</span></span><br><span class="line">        self.length = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        new_item = Node(item)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self._head:</span><br><span class="line">            self._head = new_item</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self._tail._next = new_item</span><br><span class="line">        self._tail = new_item</span><br><span class="line">        self.length += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self._head:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        val = self._head.val</span><br><span class="line">        self._head = self._head._next</span><br><span class="line">        self.length -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.length</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;SingleLinkedQueue: %d&gt;"</span> % self.length</span><br></pre></td></tr></table></figure>
+<h3 id="2-基于-list-且完全通过调用-api-实现"><a class="header-anchor" href="#2-基于-list-且完全通过调用-api-实现">¶</a>2 基于 list 且完全通过调用 api 实现</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListQueue</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity=<span class="number">10</span>)</span>:</span></span><br><span class="line">        self._items = []</span><br><span class="line">        self.capacity = capacity</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(self._items) == self.capacity:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        self._items.append(item)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(self._items) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">return</span> self._items.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self._items)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;ListQueue: [%s]&gt;"</span> % <span class="string">', '</span>.join(str(item) <span class="keyword">for</span> item <span class="keyword">in</span> self._items)</span><br></pre></td></tr></table></figure>
+<h3 id="3-基于-list-通过控制头尾节点实现"><a class="header-anchor" href="#3-基于-list-通过控制头尾节点实现">¶</a>3 基于 list 通过控制头尾节点实现</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayQueue</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity=<span class="number">10</span>)</span>:</span></span><br><span class="line">        self._items = []</span><br><span class="line">        self._head = <span class="number">0</span></span><br><span class="line">        self._tail = <span class="number">0</span></span><br><span class="line">        self.capacity = capacity</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._tail == self.capacity:</span><br><span class="line">            <span class="keyword">if</span> self._head == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            self._items[<span class="number">0</span>: self._tail - self._head] = self._items[self._head: self._tail]</span><br><span class="line">            self._tail -= self._head</span><br><span class="line">            self._head = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> self.capacity &gt; len(self._items):</span><br><span class="line">            self._items.append(item)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self._items[self._tail] = item</span><br><span class="line">        self._tail += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._head == self._tail:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        ret = self._items[self._head]</span><br><span class="line">        self._head += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self._items)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;ArrayQueue: [%s]&gt;"</span> % <span class="string">', '</span>.join(str(item) <span class="keyword">for</span> item <span class="keyword">in</span> self._items)</span><br></pre></td></tr></table></figure>
+<h3 id="4-基于-list-通过控制头尾节点实现的循环队列"><a class="header-anchor" href="#4-基于-list-通过控制头尾节点实现的循环队列">¶</a>4 基于 list 通过控制头尾节点实现的循环队列</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CircleArrayQueue</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        self._items = []</span><br><span class="line">        self._head = <span class="number">0</span></span><br><span class="line">        self._tail = <span class="number">0</span></span><br><span class="line">        self.capacity = capacity</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> (self._tail + <span class="number">1</span>) % self.capacity == self._head:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">if</span> self.capacity &gt; len(self._items):</span><br><span class="line">            self._items.append(item)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self._tail %= self.capacity</span><br><span class="line">            self._items[self._tail] = item</span><br><span class="line">        self._tail += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._head == self._tail:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        ret = self._items[self._head]</span><br><span class="line">        self._head = (self._head + <span class="number">1</span>) % self.capacity</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self._items)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;CircleArrayQueue: [%s]&gt;"</span> % <span class="string">', '</span>.join(str(item) <span class="keyword">for</span> item <span class="keyword">in</span> self._items)</span><br></pre></td></tr></table></figure>
+
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/一出好戏/" class="archive-article-date">
-  	<time datetime="2018-08-27T13:49:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/一出好戏/">一出好戏</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">胡说八道</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电影</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/vim的简单使用/" class="archive-article-date">
-  	<time datetime="2018-08-27T07:47:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/vim的简单使用/">vim的简单使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/test3/" class="archive-article-date">
-  	<time datetime="2018-08-26T16:16:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/test3/">peter</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">胡说八道</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/26/test2/" class="archive-article-date">
-  	<time datetime="2018-08-26T12:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/test2/">CS212-Lesson4</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cs212</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/26/test1/" class="archive-article-date">
-  	<time datetime="2018-08-26T12:31:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/test1/">CS212-Lesson3</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cs212</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/26/test/" class="archive-article-date">
-  	<time datetime="2018-08-26T07:50:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/22/栈/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">栈</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/test/">FP_growth算法说明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基于单链表实现的队列"><span class="toc-number">1.</span> <span class="toc-text">¶1 基于单链表实现的队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-基于-list-且完全通过调用-api-实现"><span class="toc-number">2.</span> <span class="toc-text">¶2 基于 list 且完全通过调用 api 实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-基于-list-通过控制头尾节点实现"><span class="toc-number">3.</span> <span class="toc-text">¶3 基于 list 通过控制头尾节点实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-基于-list-通过控制头尾节点实现的循环队列"><span class="toc-number">4.</span> <span class="toc-text">¶4 基于 list 通过控制头尾节点实现的循环队列</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+   new Valine({
+            av: AV,
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "gzE0z8RUfCAd6dmjY2H00HIe-gzGzoHsz",
+            app_key: "t55oLrwc8aTKChJLP1ijYzyy",
+            placeholder: "由于leancloud体验实例有每天 6 小时的强制休眠时间，所以大家的评论未必能及时知晓，望谅解。 若事情紧急，还请邮件联系，谢谢",
+            avatar: "monsterid",
+            avatar_cdn: "https://sdn.geekzu.org/avatar/",
+            pageSize: 10
+    });
+</script>
+    </section>
   
   
-    </div></section>
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
 
 
           </div>
@@ -512,8 +411,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
