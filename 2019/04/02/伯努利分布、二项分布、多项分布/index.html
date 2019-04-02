@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Brycexxx.github.io">
-  <title>Archives: 2018/9 | Bryce&#39;s Blog</title>
+  <title>伯努利分布、二项分布、多项分布 | Bryce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个懂点采矿的经常码代码的土木工程研究僧">
-<meta name="keywords" content="土木, 采矿, python, flask, tensorflow, keras">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bryce&#39;s Blog">
-<meta property="og:url" content="https://Brycexxx.github.io/archives/2018/09/index.html">
+  <meta name="description" content="这两天在看朴素贝叶斯，看到多项式贝叶斯和伯努利贝叶斯发现对这多项分布和伯努利分布这两种分布并不是很清楚，于是大概梳理了一遍，如下">
+<meta name="keywords" content="概率论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="伯努利分布、二项分布、多项分布">
+<meta property="og:url" content="https://Brycexxx.github.io/2019/04/02/伯努利分布、二项分布、多项分布/index.html">
 <meta property="og:site_name" content="Bryce&#39;s Blog">
-<meta property="og:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta property="og:description" content="这两天在看朴素贝叶斯，看到多项式贝叶斯和伯努利贝叶斯发现对这多项分布和伯努利分布这两种分布并不是很清楚，于是大概梳理了一遍，如下">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-02T09:59:51.680Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bryce&#39;s Blog">
-<meta name="twitter:description" content="一个懂点采矿的经常码代码的土木工程研究僧">
+<meta name="twitter:title" content="伯努利分布、二项分布、多项分布">
+<meta name="twitter:description" content="这两天在看朴素贝叶斯，看到多项式贝叶斯和伯努利贝叶斯发现对这多项分布和伯努利分布这两种分布并不是很清楚，于是大概梳理了一遍，如下">
   
     <link rel="alternative" href="/atom.xml" title="Bryce&#39;s Blog" type="application/atom+xml">
   
@@ -199,110 +200,199 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-伯努利分布、二项分布、多项分布" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/21/c2-assignment3/" class="archive-article-date">
-  	<time datetime="2018-09-21T04:53:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/21/c2-assignment3/">c2-assignment3</a>
+    <h1 class="article-title" itemprop="name">
+      伯努利分布、二项分布、多项分布
     </h1>
   
 
-        <div class="article-info info-on-right">
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>&nbsp;次 &nbsp;&nbsp;
+          </span>
+          </a>
           
+        
+        <a href="/2019/04/02/伯努利分布、二项分布、多项分布/" class="archive-article-date">
+  	<time datetime="2019-04-02T02:08:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这两天在看朴素贝叶斯，看到多项式贝叶斯和伯努利贝叶斯发现对这多项分布和伯努利分布这两种分布并不是很清楚，于是大概梳理了一遍，如下</p>
+<a id="more"></a>
+<h3 id="1-伯努利分布"><a class="header-anchor" href="#1-伯努利分布">¶</a>1 伯努利分布</h3>
+<p>伯努利分布 (<em>Bernouli distribution</em>) 又名两点分布后者 0-1 分布，是一个离散型概率分布。若伯努利试验成功，则伯努利随机变量取值为 1，若失败，则取为 0。记成功概率为 <em>p</em> ($0\le p \le 1$) ，失败概率为 $q=1-p$ 。则：</p>
+<ul>
+<li>
+<p>概率质量函数为：<br>
+$$<br>
+f_X(x)=p<sup>x(1-p)</sup>{(1-x)}=\begin{cases}<br>
+q &amp; \text{x=0},\<br>
+p &amp; \text{x=1}<br>
+\end{cases}<br>
+$$</p>
+</li>
+<li>
+<p>期望值：<br>
+$$<br>
+E[X]= \sum_{i=0}^1x_if_X(x)=0<em>q+1</em>p=p<br>
+$$</p>
+</li>
+<li>
+<p>方差为：<br>
+$$<br>
+var[X]=\sum_{i=0}<sup>1(x_i-E[X])</sup>2f_X(x)=(0-p)<sup>2*q+(1-p)</sup>2*p=p(1-p)=pq<br>
+$$</p>
+</li>
+</ul>
+<p>最典型的就是抛硬币实验，抛一次硬币就是一次伯努利实验，结果只有正反两种情况，正面的概率为 0.5，反面的概率为 1-0.5=0.5 (一枚均匀的硬币)</p>
+<h3 id="2-二项分布"><a class="header-anchor" href="#2-二项分布">¶</a>2 二项分布</h3>
+<p>二项分布 (<em>Binomial distribution</em>) 是 <em>n</em> 个独立的是/非实验中成功次数的离散概率分布，其中每次实验成功的概率为 <em>p</em> 。这样单次成功/失败的实验又称为伯努利实验 。当 <em>n</em>=1 的时候二项分布就是伯努力分布</p>
+<ul>
+<li>
+<p>概率质量函数：<br>
+$$<br>
+f(k,n,p)=Pr(X=k)=C_n<sup>kp</sup>k(1-p)^{n-k}<br>
+$$</p>
+</li>
+<li>
+<p>期望值：<br>
+$$<br>
+E[X]=np<br>
+$$</p>
+</li>
+<li>
+<p>方差：<br>
+$$<br>
+var[X]=np(1-p)<br>
+$$</p>
+</li>
+</ul>
+<p>还是可以用抛硬币类比，只不过要多次抛硬币，比如一共抛 10 次，共 7 次正面的概率是多少，$p(X=7)=C_{10}<sup>7*0.5</sup>7*(1-0.5)^3​$</p>
+<h3 id="3-多项分布"><a class="header-anchor" href="#3-多项分布">¶</a>3 多项分布</h3>
+<p>多项分布是对二项分布的扩展，二项分布是单变量分布，而多项分布是多变量分布。多项分布的典型例子是扔色子，每次实验有多种可能，并进行多次实验，多项分布描述的是每种可能发生次数的联合概率分布</p>
+<p>在单次实验中，假设一共有 <em>k</em> 种可能情况，记这 <em>k</em> 种可能发生的概率为 $\mu=[\mu_1,\mu_2,…\mu_k]​$ ，并且 $\sum_{i=1}^k\mu_i=1​$ ，记 $X=[x_1,x_2,…x_k]​$，其中 $x_i\in {0,1}​$ ，并且 $\sum_{i=1}^kx_i=1​$ ，即 $x_i​$ 中只有一个为 1，其他均为 0，也就是每次实验只有一种可能发生，$x_i​$ 取 1 的概率为 $\mu_i​$ ，那么 <em>x</em> 的概率为：<br>
+$$<br>
+P(X\mid \mu )=\prod_{i=1}<sup>k\mu_i</sup>{x_i}<br>
+$$<br>
+将实验进行 <em>N</em> 次，记第 <em>i</em> 种可能发生的次数为 $m_i$ ，且 $\sum_{i=1}^km_i=N$ ，那么多项分布表示为 $m_i$ 的联合概率分布：<br>
+$$<br>
+P(m_1,…m_k \mid N,\mu)=\frac{N!}{m_1!..m_k!}\prod_{i=1}<sup>d\mu_i</sup>{m_i}<br>
+$$<br>
+解释一下上面的公式，连乘部分，是不考虑  $m_i$ 的分布组合的，就像二项分布不考虑组合数的部分； 前面的部分则是在固定每种可能发生的次数后的实验结果的组合，首先进行全排列即 $N!$ ，然后考虑同一种可能结果发生的次数之间不存在顺序，则需要在全排列的基础上消去同种结果之间的顺序，同种结果的顺序为 $m_k!$ ，即上式中第一项的分母部分</p>
+
+      
+      
+    
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">coursera</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_science_2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">概率论</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/11/最短路径/" class="archive-article-date">
-  	<time datetime="2018-09-11T11:17:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/23/队列/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">队列</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/11/最短路径/">最短路径</a>
-    </h1>
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+   new Valine({
+            av: AV,
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "gzE0z8RUfCAd6dmjY2H00HIe-gzGzoHsz",
+            app_key: "t55oLrwc8aTKChJLP1ijYzyy",
+            placeholder: "由于leancloud体验实例有每天 6 小时的强制休眠时间，所以大家的评论未必能及时知晓，望谅解。 若事情紧急，还请邮件联系，谢谢",
+            avatar: "monsterid",
+            avatar_cdn: "https://sdn.geekzu.org/avatar/",
+            pageSize: 10
+    });
+</script>
+    </section>
+  
+  
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">最短路径</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
+
+
 
 
           </div>
@@ -352,8 +442,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
